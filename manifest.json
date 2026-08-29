@@ -1,0 +1,26 @@
+{
+  "name": "webkaizen – Premium Website Templates",
+  "short_name": "webkaizen",
+  "description": "Premium animated website templates for birthdays, anniversaries, love and special occasions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#e11d48",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/asset/manifest/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/asset/manifest/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["shopping", "lifestyle"],
+  "lang": "en-IN"
+}
