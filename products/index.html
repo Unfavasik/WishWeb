@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="/_next/static/css/3f8cdf90cad42ec8.css" data-precedence="next">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Dancing+Script:wght@600;700&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,600&family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&family=Work+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#08090B">
+  <title>Website Templates – Wishly & Webkaizen</title>
+  <meta name="description" content="Discover 17+ premium website templates designed for every special occasion. Birthday, Love, Wedding, Occasion, Sorry, Anniversary and Free templates.">
+  <link rel="canonical" href="https://www.webkaizen.in/products">
+  <meta property="og:title" content="Website Templates – Wishly">
+  <meta property="og:description" content="Discover 17+ premium website templates designed for every special occasion.">
+  <meta property="og:url" content="https://www.webkaizen.in/products">
+  <meta property="og:image" content="/asset/og-image.png">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/asset/manifest/icon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="/asset/top%20bar%20logo.webp" sizes="180x180">
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+    body {
+      background-color: #08090B !important;
+      color: #F2F2F2;
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      margin: 0;
+      padding: 0;
+    }
+    .font-serif-display {
+      font-family: 'Fraunces', 'Playfair Display', Georgia, serif;
+    }
+    .font-brand {
+      font-family: 'Working Pro', 'Work Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    .font-cursive { font-family: 'Dancing Script', 'Caveat', cursive; }
+    .font-great-vibes { font-family: 'Great Vibes', cursive; }
+    .font-code { font-family: 'Fira Code', monospace; }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    /* Global Page & Container */
+    .templates-page {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      background-color: #08090B;
+    }
+
+    .templates-container {
+      padding-left: 26px !important;
+      padding-right: 26px !important;
+      padding-top: 24px;
+      padding-bottom: 80px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Back Button */
+    .btn-back-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      height: 48px;
+      max-height: 72px;
+      padding: 0 20px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.04);
+      color: #F2F2F2;
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .btn-back-home:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    /* Hero Heading & TextLoop */
+    .hero-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: #FFFFFF;
+      margin: 0 0 12px 0;
+    }
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 38px;
+      }
+    }
+    @media (min-width: 640px) {
+      .hero-title {
+        font-size: 52px;
+      }
+    }
+
+    /* ========================================
+       TEXT LOOP COMPONENT
+       ======================================== */
+    .text-loop-container {
+      display: flex;
+      width: 100%;
+      max-width: 100%;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      font-size: clamp(1.2rem, 6vw, 4.5rem);
+    }
+
+    .text-loop-static {
+      margin-right: 12px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      color: #FFFFFF;
+      font-family: 'Fraunces', Georgia, serif;
+    }
+
+    .text-loop-relative {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+
+    .text-loop-invisible {
+      visibility: hidden;
+      white-space: nowrap;
+      padding: 2px 8px;
+    }
+
+    .text-loop-absolute-container {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      border-radius: 12px;
+      padding: 2px 8px;
+      transition: opacity 0.45s ease-in-out, transform 0.45s ease-in-out, filter 0.45s ease-in-out;
+      will-change: opacity, transform, filter;
+    }
+
+    .text-loop-absolute-container.exit {
+      opacity: 0;
+      transform: translateY(-12px);
+      filter: blur(4px);
+    }
+    
+    .text-loop-absolute-container.enter {
+      opacity: 0;
+      transform: translateY(12px);
+      filter: blur(4px);
+      transition: none;
+    }
+    
+    .text-loop-absolute-container.active {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0px);
+    }
+
+    .text-loop-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, transparent, rgba(248, 6, 18, 0.15), rgba(248, 6, 18, 0.35));
+      border-radius: 12px;
+      border: 1px solid rgba(248, 6, 18, 0.4);
+      pointer-events: none;
+    }
+
+    .text-loop-rotating {
+      position: relative;
+      background: linear-gradient(to right, #F80612, #ff4b4b);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      padding-right: 4px;
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    .text-loop-cursor {
+      width: 3px;
+      height: 1.05em;
+      background-color: #F80612;
+      border-radius: 2px;
+      margin-left: 6px;
+      flex-shrink: 0;
+      animation: textLoopCursorBlink 0.8s infinite alternate ease-in-out;
+    }
+
+    @keyframes textLoopCursorBlink {
+      from { opacity: 1; }
+      to { opacity: 0.35; }
+    }
+
+    @media (min-width: 768px) {
+      .text-loop-cursor {
+        width: 4px;
+      }
+    }
+
+    @keyframes textLoopCursorBlink {
+      0% { opacity: 1; }
+      100% { opacity: 0.35; }
+    }
+
+    .pencil-underline {
+      position: relative;
+      display: inline-block;
+      white-space: nowrap;
+    }
+    .pencil-underline::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 7px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12' preserveAspectRatio='none'%3E%3Cpath d='M0 7 C 20 2, 40 10, 60 4 C 80 -1, 95 8, 100 6' stroke='%233b82f6' stroke-width='3.5' stroke-linecap='round' fill='none'/%3E%3C/svg%3E");
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      pointer-events: none;
+    }
+
+    .hero-description {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #A7A7AE;
+      margin: 0 0 28px 0;
+      max-width: 580px;
+    }
+
+    /* ========================================
+       SEARCH BAR — EXACT TARGET
+       ======================================== */
+    .search-bar,
+    .template-search {
+      width: 100%;
+      height: 72px !important;
+      padding: 0 22px !important;
+      border-radius: 36px !important;
+      background: #0b0c10;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+      margin-top: 0;
+      margin-bottom: 54px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .search-bar:focus-within,
+    .template-search:focus-within {
+      border-color: rgba(59, 130, 246, 0.6);
+      box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.3);
+    }
+
+    .search-bar svg,
+    .template-search svg.search-icon {
+      width: 24px !important;
+      height: 24px !important;
+      flex-shrink: 0;
+      margin-right: 14px;
+      color: #8E929D;
+      display: block;
+    }
+
+    .search-bar input,
+    .template-search input {
+      flex: 1;
+      min-width: 0;
+      height: 100%;
+      border: none !important;
+      outline: none !important;
+      background: transparent !important;
+      background-color: transparent !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      color: #FFFFFF !important;
+      font-size: 16px !important;
+      font-weight: 400 !important;
+      font-family: inherit;
+      line-height: normal;
+      box-shadow: none !important;
+    }
+
+    .search-bar input::placeholder,
+    .template-search input::placeholder {
+      color: #8E929D !important;
+      font-size: 16px !important;
+      font-weight: 400 !important;
+      opacity: 1;
+    }
+
+    /* ========================================
+       ALL PRODUCTS SELECTOR — EXACT TARGET
+       ======================================== */
+    .category-selector-wrapper {
+      margin-bottom: 30px;
+      position: relative;
+      width: 100%;
+    }
+
+    .category-selector {
+      width: 100%;
+      height: 78px !important;
+      padding: 0 28px !important;
+      border-radius: 20px !important;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-sizing: border-box;
+      background: #17181c;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #F1F1F3;
+      cursor: pointer;
+      text-align: left;
+      transition: border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .category-selector:hover {
+      border-color: rgba(255, 255, 255, 0.24);
+      background-color: #1a1b20;
+    }
+
+    .category-selector .category-name {
+      font-size: 18px !important;
+      font-weight: 600 !important;
+      white-space: nowrap;
+      color: #FFFFFF;
+    }
+
+    .category-selector .category-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .category-selector .template-count {
+      font-size: 17px !important;
+      font-weight: 400 !important;
+      color: #A7A7AE !important;
+      white-space: nowrap;
+    }
+
+    .category-selector .chevron {
+      width: 20px !important;
+      height: 20px !important;
+      flex-shrink: 0;
+      color: #FFFFFF;
+      transition: transform 0.2s ease;
+    }
+
+    .category-dropdown-panel {
+      margin-top: 10px;
+      border-radius: 20px;
+      background-color: #17181c;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      overflow: hidden;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Product Card Styling */
+    .product-card-wrap {
+      border-radius: 20px;
+      background-color: #0c0d12;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      overflow: hidden;
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .product-card-wrap:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255, 255, 255, 0.24);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* Apple Hello SVG Animation */
+    .apple-hello-svg {
+      height: 28px;
+      width: auto;
+      color: #FFFFFF;
+      display: inline-block;
+      vertical-align: middle;
+      filter: drop-shadow(0 2px 10px rgba(255, 255, 255, 0.2));
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
+    }
+    @media (min-width: 640px) {
+      .apple-hello-svg {
+        height: 32px;
+      }
+    }
+    .group:hover .apple-hello-svg {
+      transform: scale(1.04);
+      filter: drop-shadow(0 2px 14px rgba(255, 255, 255, 0.35));
+    }
+
+    .apple-hello-path {
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      opacity: 0;
+    }
+
+    .apple-hello-path.path-h1 {
+      stroke-dasharray: 600;
+      stroke-dashoffset: 600;
+      animation: appleHelloDrawH1 0.85s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.15s;
+    }
+
+    .apple-hello-path.path-h2 {
+      stroke-dasharray: 2800;
+      stroke-dashoffset: 2800;
+      animation: appleHelloDrawH2 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.65s;
+    }
+
+    @keyframes appleHelloDrawH1 {
+      0% {
+        stroke-dashoffset: 600;
+        opacity: 0;
+      }
+      15% {
+        opacity: 1;
+      }
+      100% {
+        stroke-dashoffset: 0;
+        opacity: 1;
+      }
+    }
+
+    @keyframes appleHelloDrawH2 {
+      0% {
+        stroke-dashoffset: 2800;
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        stroke-dashoffset: 0;
+        opacity: 1;
+      }
+    }
+
+    /* Scrollbars */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="min-h-screen bg-[#08090B] text-[#F2F2F2] selection:bg-blue-500/30 selection:text-white">
+
+  <!-- Header Navigation -->
+  <wishly-topbar></wishly-topbar>
+
+  <!-- Page Main Container -->
+  <main class="templates-page">
+    <div class="templates-container">
+      
+      <!-- 1. Breadcrumb: Home / Templates (16px) -->
+      <div class="flex items-center gap-2 text-[16px] text-[#73737C] mb-4">
+        <a href="/" class="hover:text-white transition-colors text-[#A7A7AE]">Home</a>
+        <span class="text-[#73737C]">/</span>
+        <span class="text-[#FFFFFF] font-medium">Templates</span>
+      </div>
+
+      <!-- 2. Back Button -->
+      <div class="mb-6">
+        <a href="/" class="btn-back-home">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m12 19-7-7 7-7"/>
+            <path d="M19 12H5"/>
+          </svg>
+          <span>Back to Home</span>
+        </a>
+      </div>
+
+      <!-- 3. Title with TextLoop & Description -->
+      <div style="margin-bottom: 24px; width: 100%; max-width: 100%; min-width: 0;">
+        <h1 class="hero-title" style="margin-bottom: 12px; width: 100%; max-width: 100%; min-width: 0;">
+          <div class="text-loop-container" id="templates-text-loop">
+            <span class="text-loop-static">Explore</span>
+            <div class="text-loop-relative" id="loop-box">
+              <span aria-hidden="true" class="text-loop-rotating text-loop-invisible" id="loop-invisible-text">Creative Templates</span>
+              <div class="text-loop-absolute-container active" id="loop-anim-container">
+                <div class="text-loop-bg"></div>
+                <span class="text-loop-rotating" id="loop-text">Creative Templates</span>
+              </div>
+            </div>
+            <div class="text-loop-cursor"></div>
+          </div>
+        </h1>
+        <p class="hero-description">
+          Discover 17+ premium website templates designed for every special occasion
+        </p>
+      </div>
+
+      <!-- ========================================
+           4. SEARCH BAR (Height 72px, radius 36px)
+           ======================================== -->
+      <div class="search-bar template-search">
+        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search templates..." 
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+          oninput="handleSearch(this.value)"
+        >
+        <button id="clear-search-btn" onclick="clearSearch()" class="hidden text-[#73737C] hover:text-white text-xs p-1 ml-2" title="Clear search">
+          ✕
+        </button>
+      </div>
+
+      <!-- ========================================
+           5. ALL PRODUCTS SELECTOR (Height 78px, radius 20px)
+           ======================================== -->
+      <div class="category-selector-wrapper">
+        <!-- Compact button: Height 78px, Closed by default -->
+        <button 
+          id="category-accordion-btn" 
+          onclick="toggleCategoryAccordion()" 
+          class="category-selector"
+          aria-expanded="false"
+        >
+          <span id="selected-category-label" class="category-name">All Products</span>
+
+          <div class="category-right">
+            <span id="selected-count-label" class="template-count">17 templates</span>
+            <svg id="accordion-chevron" class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </div>
+        </button>
+
+        <!-- Category Options (Hidden by default) -->
+        <div id="category-dropdown-list" class="hidden category-dropdown-panel divide-y divide-white/[0.06]">
+          <button onclick="selectCategory('All')" class="category-item-row w-full flex items-center justify-between px-6 py-4 text-base bg-[#222530] text-white font-semibold transition-colors" data-category="All">
+            <span>All Products</span>
+            <span class="text-sm text-neutral-300">17</span>
+          </button>
+          <button onclick="selectCategory('Birthday')" class="category-item-row w-full flex items-center justify-between px-6 py-4 text-base text-[#A7A7AE] hover:text-white hover:bg-white/[0.04] transition-colors" data-category="Birthday">
+            <span>Birthday</span>
+            <span class="text-sm text-[#73737C]">6</span>
+          </button>
+          <button onclick="selectCategory('Love')" class="category-item-row w-full flex items-center justify-between px-6 py-4 text-base text-[#A7A7AE] hover:text-white hover:bg-white/[0.04] transition-colors" data-category="Love">
+            <span>Love</span>
+            <span class="text-sm text-[#73737C]">4</span>
+          </button>
+          <button onclick="selectCategory('Wedding')" class="category-item-row w-full flex items-center justify-between px-6 py-4 text-base text-[#A7A7AE] hover:text-white hover:bg-white/[0.04] transition-colors" data-category="Wedding">
+            <span>Wedding</span>
+            <span class="text-sm text-[#73737C]">2</span>
+          </button>
+          <button onclick="selectCategory('Occasion')" class="category-item-row w-full flex items-center justify-between px-6 py-4 text-base text-[#A7A7AE] hover:text-white hover:bg-white/[0.04] transition-colors" data-category="Occasion">
+            <span>Occasion</span>
+            <span class="text-sm text-[#73737C]">3</span>
+          </button>
+          <button onclick="selectCategory('Sorry')" class="category-item-row w-full flex items-center justify-between px-6 py-4 text-base text-[#A7A7AE] hover:text-white hover:bg-white/[0.04] transition-colors" data-category="Sorry">
+            <span>Sorry</span>
+            <span class="text-sm text-[#73737C]">1</span>
+          </button>
+          <button onclick="selectCategory('Anniversary')" class="category-item-row w-full flex items-center justify-between px-6 py-4 text-base text-[#A7A7AE] hover:text-white hover:bg-white/[0.04] transition-colors" data-category="Anniversary">
+            <span>Anniversary</span>
+            <span class="text-sm text-[#73737C]">1</span>
+          </button>
+          <button onclick="selectCategory('Free')" class="category-item-row w-full flex items-center justify-between px-6 py-4 text-base text-emerald-400 hover:text-emerald-300 hover:bg-emerald-500/10 transition-colors" data-category="Free">
+            <span>Free</span>
+            <span class="text-sm text-emerald-400">1</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ========================================
+           6. PRODUCT CARDS GRID
+           ======================================== -->
+      <div id="products-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Rendered dynamically by JavaScript -->
+      </div>
+
+      <!-- Empty State -->
+      <div id="empty-state" class="hidden text-center py-16 px-4">
+        <div class="w-16 h-16 rounded-full bg-white/[0.04] border border-white/10 flex items-center justify-center mx-auto mb-4 text-2xl">
+          🔍
+        </div>
+        <h3 class="text-lg font-semibold text-white mb-1">No templates found</h3>
+        <p class="text-sm text-[#A7A7AE] max-w-sm mx-auto mb-6">
+          We couldn't find any template matching your search. Try another keyword or browse all categories.
+        </p>
+        <button onclick="resetFilters()" class="inline-flex items-center justify-center px-6 py-2.5 rounded-full border border-blue-500/50 bg-blue-500/10 text-blue-400 text-xs font-semibold hover:bg-blue-500/20 transition-all">
+          View All Templates
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Country / Region Modal -->
+  <div id="country-modal" class="fixed inset-0 z-[110] hidden items-center justify-center bg-black/80 backdrop-blur-md p-4">
+    <div class="relative w-full max-w-sm rounded-2xl border border-white/15 bg-[#0e0e12] p-6 shadow-2xl">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-base font-semibold text-white">Select Region & Currency</h3>
+        <button onclick="closeCountryModal()" class="text-neutral-400 hover:text-white p-1">✕</button>
+      </div>
+      <div class="space-y-2">
+        <button onclick="selectCurrency('INR', '🇮🇳')" class="w-full flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-left transition-colors">
+          <div class="flex items-center gap-3">
+            <span class="text-xl">🇮🇳</span>
+            <div>
+              <div class="text-sm font-semibold text-white">India</div>
+              <div class="text-xs text-neutral-400">INR (₹)</div>
+            </div>
+          </div>
+          <span class="text-xs font-medium text-blue-400">Default</span>
+        </button>
+        <button onclick="selectCurrency('PKR', '🇵🇰')" class="w-full flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-left transition-colors">
+          <div class="flex items-center gap-3">
+            <span class="text-xl">🇵🇰</span>
+            <div>
+              <div class="text-sm font-semibold text-white">Pakistan</div>
+              <div class="text-xs text-neutral-400">PKR (Rs)</div>
+            </div>
+          </div>
+        </button>
+        <button onclick="selectCurrency('BDT', '🇧🇩')" class="w-full flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-left transition-colors">
+          <div class="flex items-center gap-3">
+            <span class="text-xl">🇧🇩</span>
+            <div>
+              <div class="text-sm font-semibold text-white">Bangladesh</div>
+              <div class="text-xs text-neutral-400">BDT (৳)</div>
+            </div>
+          </div>
+        </button>
+        <button onclick="selectCurrency('USD', '🌐')" class="w-full flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-left transition-colors">
+          <div class="flex items-center gap-3">
+            <span class="text-xl">🌐</span>
+            <div>
+              <div class="text-sm font-semibold text-white">International</div>
+              <div class="text-xs text-neutral-400">USD ($)</div>
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 bg-[#060709] py-12 px-[26px] text-neutral-300">
+    <div class="mx-auto max-w-5xl">
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
+        
+        <!-- Brand column -->
+        <div class="space-y-3">
+          <a href="/" class="flex items-center">
+            <img alt="Wishly Logo" style="height: 28px; width: auto;" class="object-contain transition-transform duration-300 hover:scale-105" src="/asset/top%20bar%20logo.webp">
+          </a>
+          <p class="text-xs text-[#A7A7AE] leading-relaxed">
+            Premium animated website templates for birthdays, anniversaries, and special moments.
+          </p>
+          <div class="flex items-center gap-2 pt-1">
+            <a href="https://instagram.com/webkaizen" target="_blank" rel="noopener noreferrer" class="group flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-neutral-400 transition-all hover:bg-pink-600/20 hover:text-pink-400 hover:border-pink-500/30" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+            </a>
+            <a href="https://www.youtube.com/@WebKaizenDev" target="_blank" rel="noopener noreferrer" class="group flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-neutral-400 transition-all hover:bg-red-600/20 hover:text-red-400 hover:border-red-500/30" aria-label="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path><path d="m10 15 5-3-5-3z"></path></svg>
+            </a>
+            <a href="https://t.me/web_kaizen_official" target="_blank" rel="noopener noreferrer" class="group flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-neutral-400 transition-all hover:bg-sky-600/20 hover:text-sky-400 hover:border-sky-500/30" aria-label="Telegram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"></path><path d="M22 2 11 13"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Explore links -->
+        <div class="space-y-3">
+          <h3 class="text-xs font-semibold tracking-wider uppercase text-neutral-400">Explore</h3>
+          <ul class="space-y-2 text-xs sm:text-sm">
+            <li><a class="text-[#A7A7AE] hover:text-white transition-colors" href="/">Home</a></li>
+            <li><a class="text-[#A7A7AE] hover:text-white transition-colors" href="/products">All Templates</a></li>
+            <li><a class="text-[#A7A7AE] hover:text-white transition-colors" href="/products?category=Birthday">Birthday Templates</a></li>
+            <li><a class="text-[#A7A7AE] hover:text-white transition-colors" href="/products?category=Love">Love Templates</a></li>
+            <li><a class="text-[#A7A7AE] hover:text-white transition-colors" href="/products?category=Free">Free Projects</a></li>
+          </ul>
+        </div>
+
+        <!-- Company links -->
+        <div class="space-y-3">
+          <h3 class="text-xs font-semibold tracking-wider uppercase text-neutral-400">Company</h3>
+          <ul class="space-y-2 text-xs sm:text-sm">
+            <li><a class="text-[#A7A7AE] hover:text-white transition-colors" href="/about-us">About Us</a></li>
+            <li><a class="text-[#A7A7AE] hover:text-white transition-colors" href="/privacy-policy">Privacy Policy</a></li>
+            <li><a class="text-[#A7A7AE] hover:text-white transition-colors" href="https://instagram.com/webkaizen" target="_blank">Instagram Profile</a></li>
+          </ul>
+        </div>
+
+        <!-- Hire Me -->
+        <div class="space-y-3">
+          <h3 class="text-xs font-semibold tracking-wider uppercase text-neutral-400">Hire Me</h3>
+          <p class="text-xs text-[#A7A7AE] leading-relaxed">
+            Have a custom project in mind? Drop me a line on WhatsApp — let's build something special.
+          </p>
+          <a href="https://wa.me/918092464955?text=Hi%20Webkaizen%2C%20I%20have%20a%20custom%20project%20in%20mind." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full rounded-xl border border-white/10 bg-black py-2.5 px-4 text-xs font-medium text-white backdrop-blur-md transition-all hover:bg-white/10">
+            Make Your Own ﾒ
+          </a>
+        </div>
+
+      </div>
+
+      <div class="mt-12 border-t border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#73737C]">
+        <div>
+          © 2026 <span class="text-neutral-300 font-medium">webkaizen.</span> All rights reserved.
+        </div>
+        <div class="text-neutral-500">
+          Designed & Developed by Dev Asik
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Template Data & Client Script -->
+  <script>
+    const TEMPLATES_DATA = [
+      {
+        id: 'cinematic-birthday',
+        title: 'Cinematic-Birthday',
+        category: 'Birthday',
+        badges: ['Birthday', 'New'],
+        price: 250,
+        originalPrice: 400,
+        saveAmount: 150,
+        description: 'Passkey - 1234 | Craft unique, colorful birthday surprises with easy-to-use designs that bring smiles and unforgettable moments.',
+        imageSrc: '/_next/image?url=%2Fproduct%2Fc-birthday.png&w=640&q=75',
+        themeBg: 'bg-[#0b0c10]'
+      },
+      {
+        id: 'raksha-bandhan',
+        title: 'Raksha-Bandhan',
+        category: 'Occasion',
+        badges: ['Occasion', 'New'],
+        price: 249,
+        originalPrice: 500,
+        saveAmount: 251,
+        description: 'A beautiful, heartwarming Raksha Bandhan website celebrating the special bond between brothers and sisters with interactive Rakhi tying animation.',
+        imageSrc: '/_next/image?url=%2Fproduct%2Frakhi.png&w=640&q=75',
+        themeBg: 'bg-gradient-to-br from-[#7a060e] via-[#aa181a] to-[#de5d09]'
+      },
+      {
+        id: 'birthday-p3',
+        title: 'Birthday-P3',
+        category: 'Birthday',
+        badges: ['Birthday'],
+        price: 250,
+        originalPrice: 430,
+        saveAmount: 180,
+        description: 'Birthday Template: Craft unique, colorful birthday surprises with easy-to-use designs that bring smiles and unforgettable moments.',
+        imageSrc: '/_next/image?url=%2Fproduct%2Fbirthday-p3.png&w=640&q=75',
+        themeBg: 'bg-[#1a0309]'
+      },
+      {
+        id: 'love-flower',
+        title: 'Love-flower',
+        category: 'Love',
+        badges: ['Love', 'New'],
+        price: 250,
+        originalPrice: 330,
+        saveAmount: 80,
+        description: 'Love Flower is a beautiful interactive project that symbolizes love, emotions, and blooming affections with animated floral effects.',
+        themeBg: 'bg-[#2b101d]'
+      },
+      {
+        id: 'scrapbook',
+        title: 'Scrapbook',
+        category: 'Occasion',
+        badges: ['Occasion', 'New'],
+        price: 199,
+        originalPrice: 230,
+        saveAmount: 31,
+        description: 'A creative digital scrapbook built with HTML, CSS, JavaScript, and Canva also, featuring personalized pages, polaroid photos, and custom background music.',
+        themeBg: 'bg-[#1e140d]'
+      },
+      {
+        id: 'wedding-site2',
+        title: 'Wedding Site 2',
+        category: 'Wedding',
+        badges: ['Wedding', 'New'],
+        price: 250,
+        originalPrice: 1500,
+        saveAmount: 1250,
+        description: 'Create stunning, interactive digital wedding invitations and websites. Share your story, ceremony itinerary, venue navigation, and RSVP.',
+        themeBg: 'bg-[#141b22]'
+      },
+      {
+        id: 'birthday-matrix',
+        title: 'Birthday Matrix',
+        category: 'Birthday',
+        badges: ['Birthday'],
+        price: 220,
+        originalPrice: 399,
+        saveAmount: 179,
+        description: 'A beautiful animated birthday wish template with matrix effects and custom music.',
+        themeBg: 'bg-[#050807]'
+      },
+      {
+        id: 'birthday-p1',
+        title: 'Birthday-p1',
+        category: 'Birthday',
+        badges: ['Birthday'],
+        price: 199,
+        originalPrice: 299,
+        saveAmount: 100,
+        description: 'A vibrant, cheerful birthday celebration template with pop-up greeting cards, photo carousel, and animated candle blowing.',
+        themeBg: 'bg-[#180d28]'
+      },
+      {
+        id: 'wedding-site',
+        title: 'Wedding Site',
+        category: 'Wedding',
+        badges: ['Wedding'],
+        price: 299,
+        originalPrice: 1199,
+        saveAmount: 900,
+        description: 'Classic luxury wedding invitation website template with countdown timer, photo gallery, love story timeline, and guest book.',
+        themeBg: 'bg-[#1a1510]'
+      },
+      {
+        id: 'birthday-p2',
+        title: 'Birthday-p2',
+        category: 'Birthday',
+        badges: ['Birthday'],
+        price: 210,
+        originalPrice: 350,
+        saveAmount: 140,
+        description: 'Modern aesthetic birthday board with background audio player, floating heart balloons, and customizable memory photo wall.',
+        themeBg: 'bg-[#101424]'
+      },
+      {
+        id: 'be-my-valentine',
+        title: 'Be My Valentine',
+        category: 'Love',
+        badges: ['Love'],
+        price: 199,
+        originalPrice: 350,
+        saveAmount: 151,
+        description: 'Express your feelings with this interactive Valentine confession page featuring playful buttons, romantic animations, and love notes.',
+        themeBg: 'bg-[#2b0c16]'
+      },
+      {
+        id: 'love-letter',
+        title: 'Love Letter',
+        category: 'Love',
+        badges: ['Love'],
+        price: 199,
+        originalPrice: 299,
+        saveAmount: 100,
+        description: 'An interactive envelope opening animation revealing a heartfelt handwritten letter, gentle background music, and cute polaroids.',
+        themeBg: 'bg-[#280a18]'
+      },
+      {
+        id: 'say-sorry',
+        title: 'Say Sorry',
+        category: 'Sorry',
+        badges: ['Sorry'],
+        price: 149,
+        originalPrice: 250,
+        saveAmount: 101,
+        description: 'A thoughtful apology website with gentle animations, sincere messages, and a sweet forgiveness interaction.',
+        themeBg: 'bg-[#161a22]'
+      },
+      {
+        id: 'anniversary-board',
+        title: 'Anniversary Board',
+        category: 'Anniversary',
+        badges: ['Anniversary'],
+        price: 250,
+        originalPrice: 450,
+        saveAmount: 200,
+        description: 'Celebrate years of love with milestones timeline, memory photo grid, romantic playlist, and love letter reveal.',
+        themeBg: 'bg-[#1f0f18]'
+      },
+      {
+        id: 'interactive-story',
+        title: 'Interactive Story',
+        category: 'Occasion',
+        badges: ['Occasion'],
+        price: 220,
+        originalPrice: 380,
+        saveAmount: 160,
+        description: 'Storybook style digital website with page-turn transitions, custom chapters, illustrated backgrounds, and photo memories.',
+        themeBg: 'bg-[#111922]'
+      },
+      {
+        id: 'romantic-sky',
+        title: 'Romantic Sky',
+        category: 'Love',
+        badges: ['Love'],
+        price: 240,
+        originalPrice: 420,
+        saveAmount: 180,
+        description: 'Magical romantic website under a star-filled sky with floating lanterns, interactive heart counter, and sweet audio messages.',
+        themeBg: 'bg-[#240b15]'
+      },
+      {
+        id: 'free-birthday-mini',
+        title: 'Mini Birthday Wish',
+        category: 'Free',
+        badges: ['Free', 'Birthday'],
+        price: 0,
+        originalPrice: 150,
+        saveAmount: 150,
+        description: 'Free lightweight animated birthday card template with customized name and confetti explosion effect. Perfect for quick wishes.',
+        themeBg: 'bg-[#0f172a]'
+      }
+    ];
+
+    const CATEGORY_COUNTS = {
+      'All': 17,
+      'Birthday': 6,
+      'Love': 4,
+      'Wedding': 2,
+      'Occasion': 3,
+      'Sorry': 1,
+      'Anniversary': 1,
+      'Free': 1
+    };
+
+    let currentCategory = 'All';
+    let currentSearch = '';
+    let isAccordionOpen = false; // CLOSED by default
+    let currentCurrency = { code: 'INR', symbol: '₹', rate: 1 };
+
+    function init() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const catParam = urlParams.get('category');
+      const qParam = urlParams.get('q');
+
+      if (catParam && CATEGORY_COUNTS[catParam]) {
+        currentCategory = catParam;
+      }
+      if (qParam) {
+        currentSearch = qParam;
+        const searchInput = document.getElementById('search-input');
+        if (searchInput) searchInput.value = qParam;
+      }
+
+      updateAccordionHeader();
+      renderProducts();
+      initTextLoop();
+    }
+
+    function initTextLoop() {
+      const loopBox = document.getElementById('loop-box'); // The relative container
+      const loopInvisibleText = document.getElementById('loop-invisible-text');
+      const loopAnimContainer = document.getElementById('loop-anim-container');
+      const loopText = document.getElementById('loop-text');
+      if (!loopBox || !loopText || !loopInvisibleText || !loopAnimContainer) return;
+
+      const rotatingTexts = ["Creative Templates", "Birthday Templates", "Love Templates", "Wedding Templates"];
+      const interval = 3000;
+      let currentIndex = 0;
+
+      // Find longest text and set it to invisible span
+      const longestTextStr = rotatingTexts.reduce((a, b) => a.length > b.length ? a : b, "");
+      loopInvisibleText.textContent = longestTextStr;
+
+      loopText.textContent = rotatingTexts[currentIndex];
+      loopAnimContainer.className = "text-loop-absolute-container active";
+
+      setInterval(() => {
+        // 1. Exit animation
+        loopAnimContainer.className = "text-loop-absolute-container exit";
+
+        setTimeout(() => {
+          currentIndex = (currentIndex + 1) % rotatingTexts.length;
+          loopText.textContent = rotatingTexts[currentIndex];
+          
+          // 2. Enter state (no transition)
+          loopAnimContainer.className = "text-loop-absolute-container enter";
+          
+          // Force reflow to apply enter state before transitioning to active
+          void loopAnimContainer.offsetWidth;
+          
+          // 3. Active animation
+          loopAnimContainer.className = "text-loop-absolute-container active";
+        }, 450); // wait for 0.45s transition
+      }, interval);
+    }
+
+    function toggleCategoryAccordion() {
+      isAccordionOpen = !isAccordionOpen;
+      const list = document.getElementById('category-dropdown-list');
+      const chevron = document.getElementById('accordion-chevron');
+      const btn = document.getElementById('category-accordion-btn');
+
+      if (list && chevron) {
+        if (isAccordionOpen) {
+          list.classList.remove('hidden');
+          chevron.style.transform = 'rotate(180deg)';
+          if (btn) btn.setAttribute('aria-expanded', 'true');
+        } else {
+          list.classList.add('hidden');
+          chevron.style.transform = 'rotate(0deg)';
+          if (btn) btn.setAttribute('aria-expanded', 'false');
+        }
+      }
+    }
+
+    function selectCategory(category) {
+      currentCategory = category;
+      isAccordionOpen = false;
+      const list = document.getElementById('category-dropdown-list');
+      const chevron = document.getElementById('accordion-chevron');
+      const btn = document.getElementById('category-accordion-btn');
+      if (list) list.classList.add('hidden');
+      if (chevron) chevron.style.transform = 'rotate(0deg)';
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+
+      updateAccordionHeader();
+      renderProducts();
+
+      const url = new URL(window.location);
+      if (category === 'All') {
+        url.searchParams.delete('category');
+      } else {
+        url.searchParams.set('category', category);
+      }
+      window.history.replaceState({}, '', url);
+    }
+
+    function updateAccordionHeader() {
+      const label = document.getElementById('selected-category-label');
+      const countLabel = document.getElementById('selected-count-label');
+      
+      const count = CATEGORY_COUNTS[currentCategory] || 17;
+      const displayName = currentCategory === 'All' ? 'All Products' : currentCategory;
+
+      if (label) label.textContent = displayName;
+      if (countLabel) countLabel.textContent = `${count} template${count === 1 ? '' : 's'}`;
+
+      document.querySelectorAll('.category-item-row').forEach(row => {
+        const cat = row.getAttribute('data-category');
+        if (cat === currentCategory) {
+          row.className = 'category-item-row w-full flex items-center justify-between px-6 py-4 text-base bg-[#222530] text-white font-semibold transition-colors';
+        } else if (cat === 'Free') {
+          row.className = 'category-item-row w-full flex items-center justify-between px-6 py-4 text-base text-emerald-400 hover:text-emerald-300 hover:bg-emerald-500/10 transition-colors';
+        } else {
+          row.className = 'category-item-row w-full flex items-center justify-between px-6 py-4 text-base text-[#A7A7AE] hover:text-white hover:bg-white/[0.04] transition-colors';
+        }
+      });
+    }
+
+    function handleSearch(val) {
+      currentSearch = val.trim().toLowerCase();
+      const clearBtn = document.getElementById('clear-search-btn');
+      if (clearBtn) {
+        if (currentSearch.length > 0) clearBtn.classList.remove('hidden');
+        else clearBtn.classList.add('hidden');
+      }
+      renderProducts();
+    }
+
+    function clearSearch() {
+      const input = document.getElementById('search-input');
+      if (input) input.value = '';
+      currentSearch = '';
+      const clearBtn = document.getElementById('clear-search-btn');
+      if (clearBtn) clearBtn.classList.add('hidden');
+      renderProducts();
+    }
+
+    function resetFilters() {
+      clearSearch();
+      selectCategory('All');
+    }
+
+    function getFilteredProducts() {
+      return TEMPLATES_DATA.filter(item => {
+        const matchesCategory = currentCategory === 'All' || item.category === currentCategory || item.badges.includes(currentCategory);
+        const matchesSearch = !currentSearch || 
+          item.title.toLowerCase().includes(currentSearch) || 
+          item.description.toLowerCase().includes(currentSearch) || 
+          item.category.toLowerCase().includes(currentSearch) ||
+          item.badges.some(b => b.toLowerCase().includes(currentSearch));
+        return matchesCategory && matchesSearch;
+      });
+    }
+
+    function renderBadgesHtml(badges) {
+      return badges.map(badge => {
+        let style = 'background: rgba(255, 255, 255, 0.25); border: 1px solid rgba(255, 255, 255, 0.2); color: #ffffff;';
+        if (badge === 'Birthday' || badge === 'Love') {
+          style = 'background: rgba(244, 114, 182, 0.45); border: 1px solid rgba(255, 255, 255, 0.25); color: #ffffff;';
+        } else if (badge === 'Free') {
+          style = 'background: rgba(52, 211, 153, 0.45); border: 1px solid rgba(255, 255, 255, 0.25); color: #ffffff;';
+        } else if (badge === 'Wedding' || badge === 'Occasion') {
+          style = 'background: rgba(251, 191, 36, 0.45); border: 1px solid rgba(255, 255, 255, 0.25); color: #ffffff;';
+        }
+        return `<span style="${style}" class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-md shadow-sm select-none">${badge}</span>`;
+      }).join('');
+    }
+
+    function renderProducts() {
+      const grid = document.getElementById('products-grid');
+      const emptyState = document.getElementById('empty-state');
+      if (!grid) return;
+
+      const filtered = getFilteredProducts();
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+
+      grid.innerHTML = filtered.map(item => {
+        const badgesHtml = renderBadgesHtml(item.badges);
+
+        return `
+          <a 
+            id="card-${item.id}"
+            href="/products/${item.id}"
+            class="product-card-wrap group cursor-pointer block text-left relative overflow-hidden"
+          >
+            <!-- Preview Image (aspect-ratio 1.65 / 1) -->
+            <div class="relative w-full overflow-hidden bg-[#0c0d14]" style="aspect-ratio: 1.65 / 1;">
+              ${item.imageSrc ? `
+                <img 
+                  src="${item.imageSrc}" 
+                  alt="${item.title}" 
+                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                  loading="lazy"
+                />
+              ` : `
+                <div class="w-full h-full ${item.themeBg || 'bg-[#121218]'} flex flex-col items-center justify-center p-4 text-center select-none">
+                  <div class="text-3xl mb-1">🎉✨</div>
+                  <div class="font-bold text-white text-lg">${item.title}</div>
+                  <div class="text-xs text-white/60 mt-1">Interactive Animated Template</div>
+                </div>
+              `}
+              <div class="absolute left-[14px] top-[14px] flex gap-2 z-20 pointer-events-none">
+                ${badgesHtml}
+              </div>
+            </div>
+            
+            <!-- Card Body -->
+            <div class="p-5 sm:p-6">
+              <h3 class="text-[18px] font-bold text-white mb-2 leading-tight group-hover:text-blue-400 transition-colors">
+                ${item.title}
+              </h3>
+              <p class="text-[15px] text-[#A7A7AE] leading-relaxed line-clamp-2">
+                ${item.description}
+              </p>
+            </div>
+          </a>
+        `;
+      }).join('');
+    }
+
+    function toggleMobileMenu() {
+      const drawer = document.getElementById('mobile-menu-drawer');
+      const iconOpen = document.getElementById('icon-menu-open');
+      const iconClose = document.getElementById('icon-menu-close');
+
+      const isHidden = drawer.classList.contains('hidden');
+      if (isHidden) {
+        drawer.classList.remove('hidden');
+        iconOpen.classList.add('hidden');
+        iconClose.classList.remove('hidden');
+      } else {
+        drawer.classList.add('hidden');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+      }
+    }
+
+    function openCountryModal() {
+      document.getElementById('country-modal').classList.remove('hidden');
+      document.getElementById('country-modal').classList.add('flex');
+    }
+
+    function closeCountryModal() {
+      document.getElementById('country-modal').classList.add('hidden');
+      document.getElementById('country-modal').classList.remove('flex');
+    }
+
+    function selectCurrency(code, flag) {
+      if (code === 'INR') {
+        currentCurrency = { code: 'INR', symbol: '₹', rate: 1 };
+      } else if (code === 'PKR') {
+        currentCurrency = { code: 'PKR', symbol: 'Rs ', rate: 3.3 };
+      } else if (code === 'BDT') {
+        currentCurrency = { code: 'BDT', symbol: '৳', rate: 1.4 };
+      } else if (code === 'USD') {
+        currentCurrency = { code: 'USD', symbol: '$', rate: 0.012 };
+      }
+
+      const el_current_country_flag = document.getElementById('current-country-flag'); if (el_current_country_flag) el_current_country_flag.textContent = flag;
+      closeCountryModal();
+      renderProducts();
+    }
+
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
+
+<script src="/components/topbar.js"></script>
+</body>
+</html>
