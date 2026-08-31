@@ -8,7 +8,7 @@ if (fs.existsSync(distDir)) {
 }
 fs.mkdirSync(distDir);
 
-const includeExts = ['.html', '.ico', '.png', '.jpg', '.webp', '.css', '.js'];
+const includeExts = ['.html', '.ico', '.png', '.jpg', '.webp', '.css', '.js', '.svg'];
 const exactInclude = ['manifest.json'];
 const excludeFiles = ['package.json', 'package-lock.json', 'bun.lock', 'metadata.json', 'server.js', 'build.js'];
 
