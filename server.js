@@ -93,7 +93,7 @@ app.get(['/products', '/products/', '/products/index.html', '/products.html'], (
 
 // Route for specific product detail pages (e.g. /products/cinematic-birthday)
 app.get('/products/:slug*', (req, res, next) => {
-  const detailPath = path.join(rootDir, 'products', 'detail.html');
+  const detailPath = path.join(rootDir, 'product-detail.html');
   if (fs.existsSync(detailPath)) {
     return res.sendFile(detailPath);
   }
