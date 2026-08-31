@@ -24,9 +24,6 @@ class WishlyTopBar extends HTMLElement {
             <span class="text-sm text-white/50">Select Country</span>
           </button>
           <div class="md:hidden flex items-center gap-2">
-            <button onclick="if(window.openCountryModal) window.openCountryModal()" class="flex items-center justify-center h-10 w-10 rounded-full border border-white/20 bg-gradient-to-br from-white/10 to-white/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.15),0_4px_12px_rgba(0,0,0,0.3)] hover:bg-white/10 text-white/80 outline-none" tabindex="0">
-              <span class="text-xs">🌐</span>
-            </button>
             <button id="btn-mobile-menu" aria-label="Open menu" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-transparent transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/45 focus-visible:ring-offset-0 disabled:pointer-events-none disabled:opacity-50 hover:text-foreground backdrop-blur-sm rounded-full hover:bg-white/10 text-white/80 h-10 w-10 border border-white/10 bg-white/[0.02]">
               <svg id="icon-menu-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-5 w-5" style="opacity: 1;">
                 <line x1="4" x2="20" y1="12" y2="12"></line>
