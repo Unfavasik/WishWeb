@@ -544,7 +544,11 @@
         scrollbar-width: none;
       }
     </style>
-  </head>
+  
+    <style>
+      html { font-size: 80%; }
+    </style>
+</head>
   <body
     class="min-h-screen bg-[#08090B] text-[#F2F2F2] selection:bg-blue-500/30 selection:text-white"
   >
@@ -1663,7 +1667,7 @@
             return `
           <a 
             id="card-${item.id}"
-            href="/products/${item.id}"
+            href="/product-detail.html?id=${item.id}"
             class="product-card-wrap group cursor-pointer block text-left relative overflow-hidden"
           >
             <!-- Preview Image (aspect-ratio 1.65 / 1) -->

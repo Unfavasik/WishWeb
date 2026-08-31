@@ -1073,7 +1073,11 @@
         }
       }
     </style>
-  </head>
+  
+    <style>
+      html { font-size: 80%; }
+    </style>
+</head>
   <body class="product-detail-page">
     <div class="product-detail-wrapper">
       <!-- ==================================================
@@ -1989,7 +1993,7 @@
           grid.innerHTML = suggestions
             .map(
               (item) => `
-        <a href="/products/${item.id}" class="suggested-card-link">
+        <a href="/product-detail.html?id=${item.id}" class="suggested-card-link">
           <div class="suggested-thumb-frame">
             ${renderThumbnailSmall(item)}
           </div>
