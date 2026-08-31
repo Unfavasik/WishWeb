@@ -80,10 +80,6 @@ app.get(['/', '/home', '/home/', '/home.html'], (req, res) => {
 
 // Route for /products catalog
 app.get(['/products', '/products/', '/products/index.html', '/products.html'], (req, res) => {
-  const productsPath = path.join(rootDir, 'products', 'index.html');
-  if (fs.existsSync(productsPath)) {
-    return res.sendFile(productsPath);
-  }
   const productsFile = path.join(rootDir, 'products.html');
   if (fs.existsSync(productsFile)) {
     return res.sendFile(productsFile);

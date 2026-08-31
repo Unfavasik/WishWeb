@@ -8,7 +8,7 @@ class WishlyTopBar extends HTMLElement {
       <nav class="sticky top-0 z-50 transition-all duration-500 border-b border-white/5 bg-white/[0.02] backdrop-blur-md">
         <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
           <a href="/" class="group flex items-center outline-none cursor-pointer pl-1 sm:pl-2" tabindex="0" id="brand-logo-btn">
-            <img alt="Wishly Logo" style="height: clamp(54px, 7.5vw, 66px); width: auto;" class="object-contain transition-transform duration-300 group-hover:scale-105" src="/asset/top%20bar%20logo.webp">
+            <img alt="Wishly Logo" style="height: clamp(3.375rem, 7.5vw, 4.125rem); width: auto;" class="object-contain transition-transform duration-300 group-hover:scale-105" src="/asset/top%20bar%20logo.webp">
           </a>
           <div class="hidden md:flex items-center gap-1 rounded-full border border-white/[0.07] bg-white/[0.03] p-1.5 backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
             <a class="relative px-4 py-1.5 text-sm font-medium transition-colors outline-none group" href="/">
