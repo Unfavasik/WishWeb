@@ -80,6 +80,10 @@ app.get(['/', '/home', '/home/', '/home.html'], (req, res) => {
 
 // Route for /products catalog
 app.get(['/products', '/products/', '/products/index.html', '/products.html'], (req, res) => {
+  const productsPath = path.join(rootDir, 'products', 'index.html');
+  if (fs.existsSync(productsPath)) {
+    return res.sendFile(productsPath);
+  }
   const productsFile = path.join(rootDir, 'products.html');
   if (fs.existsSync(productsFile)) {
     return res.sendFile(productsFile);
@@ -89,7 +93,7 @@ app.get(['/products', '/products/', '/products/index.html', '/products.html'], (
 
 // Route for specific product detail pages (e.g. /products/cinematic-birthday)
 app.get('/products/:slug*', (req, res, next) => {
-  const detailPath = path.join(rootDir, 'product-detail.html');
+  const detailPath = path.join(rootDir, 'products', 'detail.html');
   if (fs.existsSync(detailPath)) {
     return res.sendFile(detailPath);
   }

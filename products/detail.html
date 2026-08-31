@@ -1,0 +1,1880 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="/_next/static/css/3f8cdf90cad42ec8.css" data-precedence="next">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Dancing+Script:wght@600;700&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,600&family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&family=Work+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#08090c">
+  <title id="meta-title">Cinematic-Birthday – Wishly</title>
+  <meta name="description" id="meta-desc" content="Passkey - 1234 | Craft unique, colorful birthday surprises with easy-to-use designs that bring smiles and unforgettable moments.">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/asset/manifest/icon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="/asset/top%20bar%20logo.webp" sizes="180x180">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      color-scheme: dark;
+    }
+
+    body {
+      background: #08090C !important;
+      color: #F1F1F3;
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .font-cursive { font-family: 'Dancing Script', 'Caveat', cursive; }
+    .font-great-vibes { font-family: 'Great Vibes', cursive; }
+    .font-serif-title { font-family: 'Playfair Display', Georgia, serif; }
+    .font-code { font-family: 'Fira Code', monospace; }
+
+    /* ==================================================
+       1. GLOBAL PAGE & CONTAINER
+       ================================================== */
+    .product-detail-page {
+      width: 100%;
+      min-height: 100vh;
+      background-color: #08090C;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .product-detail-wrapper {
+      width: 100%;
+      max-width: 460px;
+      margin: 0 auto;
+      background: #08090C;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* ==================================================
+       2. HEADER / NAVBAR
+       ================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8, 9, 12, 0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid #1a1d24;
+      width: 100%;
+    }
+
+    .site-header-inner {
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .brand-logo-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #1c1e28;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      flex-shrink: 0;
+    }
+
+    .brand-logo-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-name {
+      font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #FFFFFF;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .currency-pill-btn {
+      height: 30px;
+      padding: 0 10px;
+      border-radius: 9999px;
+      background: #13161f;
+      border: 1px solid #252a33;
+      color: #e2e8f0;
+      font-size: 11px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .currency-pill-btn:hover {
+      background: #1a1e2a;
+      border-color: #353b47;
+    }
+
+    .header-menu-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      background: #13161f;
+      border: 1px solid #252a33;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .header-menu-btn:hover {
+      background: #1a1e2a;
+      border-color: #353b47;
+    }
+
+    /* ==================================================
+       HEADER PRICING BUTTONS (SIDE-BY-SIDE)
+       ================================================== */
+    .header-pricing-bar {
+      padding: 8px 16px 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      border-bottom: 1px solid #161820;
+    }
+
+    .pricing-quick-btn {
+      height: 48px;
+      padding: 6px 8px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-sizing: border-box;
+      transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+      cursor: pointer;
+    }
+    .pricing-quick-btn:active {
+      transform: scale(0.98);
+    }
+
+    .pricing-quick-code {
+      background: #11131a;
+      border: 1px solid #252a33;
+      color: #FFFFFF;
+    }
+    .pricing-quick-code:hover {
+      background: #161922;
+      border-color: #353b47;
+    }
+
+    .pricing-quick-live {
+      background: linear-gradient(135deg, #0a1f38 0%, #061426 100%);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #FFFFFF;
+    }
+    .pricing-quick-live:hover {
+      background: linear-gradient(135deg, #0e2746 0%, #091b32 100%);
+      border-color: rgba(56, 189, 248, 0.65);
+    }
+
+    .quick-btn-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      line-height: 1.1;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      opacity: 0.9;
+    }
+
+    .quick-btn-price {
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-top: 3px;
+      color: #FFFFFF;
+    }
+
+    /* ==================================================
+       MAIN CONTENT CONTAINER
+       ================================================== */
+    .detail-main {
+      padding: 14px 16px 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    /* ==================================================
+       3. BREADCRUMB & BACK LINK
+       ================================================== */
+    .btn-back-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      height: 48px;
+      max-height: 72px;
+      padding: 0 20px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.04);
+      color: #F2F2F2;
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .btn-back-home:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    /* ==================================================
+       4. TEMPLATE PREVIEW CARD (MOST IMPORTANT)
+       ================================================== */
+    .hero-preview-container {
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 10px;
+      border: 1px solid rgba(244, 114, 182, 0.18);
+      background: radial-gradient(circle at 80% 20%, #3d0c32 0%, #20061d 55%, #100311 100%);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      position: relative;
+    }
+
+    .hero-preview-inner {
+      width: 100%;
+      min-height: 165px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      user-select: none;
+    }
+
+    /* Left: Polaroid Frame */
+    .polaroid-frame {
+      width: 48%;
+      max-width: 175px;
+      background: #FFFFFF;
+      border-radius: 6px;
+      padding: 5px 5px 14px 5px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+      transform: rotate(-3.5deg);
+      transition: transform 0.2s ease;
+      flex-shrink: 0;
+    }
+    .polaroid-frame:hover {
+      transform: rotate(-1.5deg) scale(1.02);
+    }
+
+    /* Ribbon Bow SVG atop polaroid */
+    .polaroid-ribbon-bow {
+      position: absolute;
+      top: -9px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    }
+
+    .polaroid-photo-box {
+      width: 100%;
+      height: 86px;
+      border-radius: 4px;
+      overflow: hidden;
+      background: #180918;
+      position: relative;
+    }
+
+    .polaroid-photo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .polaroid-caption {
+      font-family: 'Dancing Script', 'Caveat', cursive;
+      font-size: 11px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-top: 4px;
+      text-align: center;
+      line-height: 1;
+    }
+
+    /* Right: Passcode Panel */
+    .passcode-panel {
+      width: 48%;
+      max-width: 175px;
+      background: rgba(36, 9, 32, 0.75);
+      border: 1px solid rgba(244, 114, 182, 0.25);
+      border-radius: 12px;
+      padding: 8px 8px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+      flex-shrink: 0;
+    }
+
+    .passcode-title {
+      font-size: 8.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #f472b6;
+      margin-bottom: 5px;
+      text-align: center;
+      line-height: 1;
+    }
+
+    .passcode-dots-row {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 7px;
+    }
+
+    .passcode-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #f472b6;
+      box-shadow: 0 0 6px rgba(244, 114, 182, 0.6);
+    }
+
+    .passcode-keypad-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+      width: 100%;
+      max-width: 105px;
+    }
+
+    .keypad-key {
+      height: 19px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(244, 114, 182, 0.15);
+      font-size: 8.5px;
+      font-weight: 700;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+
+    /* ==================================================
+       5. LIVE DEMO BUTTON
+       ================================================== */
+    .live-demo-full-btn {
+      width: 100%;
+      height: 52px;
+      margin-bottom: 14px;
+      border-radius: 12px;
+      font-size: 13.5px;
+      font-weight: 600;
+      background: #11131a;
+      border: 1px solid #252a33;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    .live-demo-full-btn:hover {
+      background: #171a24;
+      border-color: #383f4d;
+    }
+    .live-demo-full-btn:active {
+      transform: scale(0.99);
+    }
+
+    /* ==================================================
+       6. CATEGORY PILL BADGES
+       ================================================== */
+    .category-badges-row {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 8px;
+    }
+
+    .cat-badge {
+      height: 23px;
+      padding: 0 10px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+
+    .cat-badge-birthday {
+      background: #141720;
+      border: 1px solid #252a33;
+      color: #d1d5db;
+    }
+
+    .cat-badge-new {
+      background: rgba(225, 29, 72, 0.18);
+      border: 1px solid rgba(244, 63, 94, 0.35);
+      color: #fb7185;
+      font-weight: 600;
+    }
+
+    /* ==================================================
+       7. PRODUCT TITLE WITH CYAN ACCENT BAR
+       ================================================== */
+    .product-title-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 6px;
+    }
+
+    .title-cyan-line {
+      width: 3px;
+      height: 24px;
+      background: #22d3ee;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .product-main-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.15;
+      color: #FFFFFF;
+      letter-spacing: -0.01em;
+    }
+
+    /* ==================================================
+       8. DESCRIPTION
+       ================================================== */
+    .product-description-text {
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: #9ca3af;
+      margin-bottom: 18px;
+      font-weight: 400;
+    }
+
+    /* ==================================================
+       9. WHAT'S INCLUDED SECTION
+       ================================================== */
+    .section-divider-title {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 10px;
+    }
+
+    .section-divider-title::before {
+      content: "—";
+      color: #64748b;
+      font-weight: 700;
+    }
+
+    .included-checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 22px;
+    }
+
+    .checklist-row {
+      font-size: 13px;
+      line-height: 1.4;
+      color: #cbd5e1;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .check-icon {
+      color: #22d3ee;
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
+
+    /* ==================================================
+       10. CHOOSE YOUR OPTION (PRICING CARDS)
+       ================================================== */
+    .pricing-cards-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .pricing-plan-card {
+      padding: 16px;
+      border-radius: 14px;
+      border: 1px solid #252a33;
+      background: #11131a;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+    }
+
+    .pricing-plan-card-live {
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      background: linear-gradient(145deg, #091729 0%, #060e1b 100%);
+    }
+
+    .plan-card-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #FFFFFF;
+    }
+
+    .plan-card-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 7px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .plan-card-price {
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1;
+      color: #FFFFFF;
+    }
+
+    .plan-card-orig-price {
+      font-size: 13px;
+      color: #64748b;
+      text-decoration: line-through;
+    }
+
+    .plan-card-tag {
+      font-size: 10.5px;
+      padding: 3px 7px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #e2e8f0;
+      font-weight: 600;
+    }
+
+    .plan-card-tag-live {
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #38bdf8;
+    }
+
+    .plan-card-save {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #34d399;
+    }
+
+    .plan-card-save-live {
+      color: #38bdf8;
+    }
+
+    .plan-info-box {
+      margin: 8px 0 12px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 11.5px;
+      line-height: 1.45;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid #20242e;
+      color: #9499a8;
+    }
+
+    .plan-info-box-live {
+      background: rgba(14, 165, 233, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      color: #bae6fd;
+    }
+
+    .plan-features-list {
+      margin-bottom: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .plan-feature-row {
+      font-size: 11.5px;
+      color: #cbd5e1;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .plan-action-btn {
+      width: 100%;
+      height: 44px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      cursor: pointer;
+      box-sizing: border-box;
+      transition: all 0.15s ease;
+    }
+
+    .plan-btn-code {
+      background: #171a24;
+      border: 1px solid #2d3340;
+      color: #FFFFFF;
+    }
+    .plan-btn-code:hover {
+      background: #202433;
+      border-color: #3f4759;
+    }
+
+    .plan-btn-live {
+      background: linear-gradient(90deg, #1b65b8, #2e7ee0);
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      color: #FFFFFF;
+    }
+    .plan-btn-live:hover {
+      background: linear-gradient(90deg, #2074d1, #3b8cf2);
+    }
+
+    /* ==================================================
+       11. SUGGESTED TEMPLATES (SCROLL REVEAL & STYLING)
+       ================================================== */
+    .suggested-section {
+      margin-top: 32px;
+      padding-top: 4px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    /* Subtle horizontal divider line with centered badge */
+    .suggested-divider-wrap {
+      position: relative;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    .suggested-divider-line {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, #1c202a 15%, #252b38 50%, #1c202a 85%, transparent 100%);
+      z-index: 1;
+    }
+
+    /* Small Pill Badge */
+    .suggested-badge {
+      position: relative;
+      z-index: 2;
+      height: 24px;
+      padding: 0 11px;
+      border-radius: 9999px;
+      background: rgba(12, 15, 22, 0.95);
+      border: 1px solid rgba(56, 189, 248, 0.22);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .suggested-badge-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #38bdf8;
+      box-shadow: 0 0 6px rgba(56, 189, 248, 0.9);
+      display: inline-block;
+    }
+
+    .suggested-badge-text {
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #bae6fd;
+      line-height: 1;
+    }
+
+    /* Main Heading */
+    .suggested-heading-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 5px;
+    }
+
+    .suggested-main-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+
+    .suggested-title-highlight {
+      background: linear-gradient(135deg, #38bdf8 20%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .suggested-title-underline {
+      width: 36px;
+      height: 2px;
+      border-radius: 2px;
+      background: linear-gradient(90deg, #38bdf8, #818cf8);
+      margin-top: 6px;
+      opacity: 0.85;
+    }
+
+    /* Subtitle */
+    .suggested-subtitle-text {
+      font-size: 12.5px;
+      color: #8b92a2;
+      font-weight: 400;
+      line-height: 1.4;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    /* Cards Grid */
+    .suggested-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .suggested-card-link {
+      border-radius: 12px;
+      border: 1px solid #20242e;
+      background: #0f1118;
+      padding: 8px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+      transition: border-color 0.2s cubic-bezier(0.22, 1, 0.36, 1), transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .suggested-card-link:hover {
+      border-color: rgba(56, 189, 248, 0.35);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+    }
+
+    .suggested-thumb-frame {
+      width: 100%;
+      height: 80px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #141722;
+      margin-bottom: 6px;
+      position: relative;
+    }
+
+    .suggested-card-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: #FFFFFF;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .suggested-card-price {
+      font-size: 11px;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-top: 2px;
+    }
+
+    /* Scroll Reveal Animation Classes */
+    .scroll-reveal-item {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 600ms cubic-bezier(0.22, 1, 0.36, 1), transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+      transition-delay: var(--reveal-delay, 0ms);
+      will-change: opacity, transform;
+    }
+
+    .is-revealed .scroll-reveal-item,
+    .suggested-section.is-revealed .scroll-reveal-item {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Mobile Precision Rules (360px - 430px) */
+    @media (max-width: 400px) {
+      .detail-main {
+        padding: 10px 12px 50px;
+      }
+      .site-header-inner {
+        padding: 8px 12px;
+      }
+      .header-pricing-bar {
+        padding: 6px 12px 10px;
+        gap: 6px;
+      }
+      .hero-preview-inner {
+        padding: 10px 8px;
+        gap: 6px;
+      }
+      .polaroid-frame {
+        max-width: 145px;
+        padding: 4px 4px 10px 4px;
+      }
+      .polaroid-photo-box {
+        height: 72px;
+      }
+      .polaroid-caption {
+        font-size: 9.5px;
+        margin-top: 2px;
+      }
+      .passcode-panel {
+        max-width: 145px;
+        padding: 6px 6px 8px;
+      }
+      .passcode-title {
+        font-size: 7.5px;
+        margin-bottom: 3px;
+      }
+      .passcode-dots-row {
+        gap: 4px;
+        margin-bottom: 5px;
+      }
+      .passcode-dot {
+        width: 5px;
+        height: 5px;
+      }
+      .passcode-keypad-grid {
+        max-width: 90px;
+        gap: 2.5px;
+      }
+      .keypad-key {
+        height: 17px;
+        font-size: 7.5px;
+      }
+      .product-main-heading {
+        font-size: 22px;
+      }
+    }
+    /* Apple Hello SVG Animation */
+    .apple-hello-svg {
+      height: 24px;
+      width: auto;
+      color: #FFFFFF;
+      display: inline-block;
+      vertical-align: middle;
+      filter: drop-shadow(0 2px 8px rgba(255, 255, 255, 0.18));
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
+    }
+    @media (min-width: 640px) {
+      .apple-hello-svg {
+        height: 28px;
+      }
+    }
+    .brand-logo-wrap:hover .apple-hello-svg {
+      transform: scale(1.04);
+      filter: drop-shadow(0 2px 12px rgba(255, 255, 255, 0.32));
+    }
+
+    .apple-hello-path {
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      opacity: 0;
+    }
+
+    .apple-hello-path.path-h1 {
+      stroke-dasharray: 600;
+      stroke-dashoffset: 600;
+      animation: appleHelloDrawH1 0.85s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.15s;
+    }
+
+    .apple-hello-path.path-h2 {
+      stroke-dasharray: 2800;
+      stroke-dashoffset: 2800;
+      animation: appleHelloDrawH2 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.65s;
+    }
+
+    @keyframes appleHelloDrawH1 {
+      0% {
+        stroke-dashoffset: 600;
+        opacity: 0;
+      }
+      15% {
+        opacity: 1;
+      }
+      100% {
+        stroke-dashoffset: 0;
+        opacity: 1;
+      }
+    }
+
+    @keyframes appleHelloDrawH2 {
+      0% {
+        stroke-dashoffset: 2800;
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        stroke-dashoffset: 0;
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body class="product-detail-page">
+
+  <div class="product-detail-wrapper">
+
+    <!-- ==================================================
+         2. HEADER & TOP NAVBAR
+         ================================================== -->
+    <wishly-topbar></wishly-topbar>
+
+    <!-- ==================================================
+         MAIN CONTENT BODY
+         ================================================== -->
+    <main class="detail-main">
+
+      <!-- 3. Breadcrumb Section -->
+      <div class="flex flex-wrap items-center gap-2 text-[16px] text-[#73737C] mb-4">
+        <a href="/" class="hover:text-white transition-colors text-[#A7A7AE]">Home</a>
+        <span class="text-[#73737C]">/</span>
+        <a href="/products" class="hover:text-white transition-colors text-[#A7A7AE]">Templates</a>
+        <span class="text-[#73737C]">/</span>
+        <span id="breadcrumb-title" class="text-[#FFFFFF] font-medium truncate max-w-[150px] sm:max-w-none">Cinematic-Birthday</span>
+      </div>
+
+      <!-- Back to Templates link -->
+      <div class="mb-6">
+        <a href="/products" class="btn-back-home">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m12 19-7-7 7-7"/>
+            <path d="M19 12H5"/>
+          </svg>
+          <span>Back to Templates</span>
+        </a>
+      </div>
+
+      <!-- 4. Template Preview Card — Most Important -->
+      <div id="product-hero-preview" class="hero-preview-container">
+        <!-- Rendered dynamically matching reference specifications -->
+      </div>
+
+      <!-- 5. Live Demo Button -->
+      <button id="main-live-demo-btn" onclick="openLiveDemoModal()" class="live-demo-full-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+        <span>Live Demo</span>
+      </button>
+
+      <!-- 6. Category Tags -->
+      <div class="category-badges-row" id="product-badges-container">
+        <span class="cat-badge cat-badge-birthday">Birthday</span>
+        <span class="cat-badge cat-badge-new">New</span>
+      </div>
+
+      <!-- 7. Product Title with Cyan Accent Line -->
+      <div class="product-title-row">
+        <div class="title-cyan-line"></div>
+        <h1 id="product-title" class="product-main-heading">
+          Cinematic-Birthday
+        </h1>
+      </div>
+
+      <!-- 8. Description -->
+      <p id="product-subtitle" class="product-description-text">
+        Passkey - 1234 | Craft unique, colorful birthday surprises with easy-to-use designs that bring smiles and unforgettable moments.
+      </p>
+
+      <!-- 9. What's Included Section -->
+      <div class="section-divider-title">
+        <span>What's Included</span>
+      </div>
+
+      <!-- Feature Checklist -->
+      <div id="whats-included-list" class="included-checklist">
+        <div class="checklist-row">
+          <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          <span>Colorful confetti animation</span>
+        </div>
+        <div class="checklist-row">
+          <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          <span>background music</span>
+        </div>
+        <div class="checklist-row">
+          <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          <span>Photo section</span>
+        </div>
+        <div class="checklist-row">
+          <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          <span>Interactive cake section</span>
+        </div>
+      </div>
+
+      <!-- 10. Choose Your Option Section -->
+      <div class="section-divider-title" style="margin-top:8px;">
+        <span>Choose Your Option</span>
+      </div>
+
+      <div class="pricing-cards-section">
+        
+        <!-- Option 1: Buy Code -->
+        <div id="option-code" class="pricing-plan-card">
+          <div class="plan-card-title font-code">
+            <span>&lt; &gt;</span>
+            <span>Premium Code</span>
+          </div>
+
+          <div class="plan-card-price-row">
+            <span id="card-code-price" class="plan-card-price">₹299</span>
+            <span id="card-code-orig" class="plan-card-orig-price">₹500</span>
+            <span class="plan-card-tag">✦ Limited Offer</span>
+            <span id="card-code-save" class="plan-card-save">Save ₹201</span>
+          </div>
+
+          <div class="plan-info-box">
+            Requires a laptop or desktop to edit the Premium Code &amp; basic knowledge of HTML CSS and JS.
+          </div>
+
+          <div class="plan-features-list">
+            <div class="plan-feature-row">
+              <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>Complete source code</span>
+            </div>
+            <div class="plan-feature-row">
+              <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>Easily editable content</span>
+            </div>
+            <div class="plan-feature-row">
+              <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>Setup instructions included</span>
+            </div>
+            <div class="plan-feature-row">
+              <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>Ongoing support</span>
+            </div>
+          </div>
+
+          <a id="whatsapp-buy-code-btn" href="#" target="_blank" rel="noopener noreferrer" class="plan-action-btn plan-btn-code">
+            Buy Premium Code
+          </a>
+        </div>
+
+        <!-- Option 2: Live Site -->
+        <div id="option-live" class="pricing-plan-card pricing-plan-card-live">
+          <div class="plan-card-title" style="color:#38bdf8;">
+            <span>🌐</span>
+            <span>Live Site</span>
+          </div>
+
+          <div class="plan-card-price-row">
+            <span id="card-live-price" class="plan-card-price">₹399</span>
+            <span id="card-live-orig" class="plan-card-orig-price">₹799</span>
+            <span class="plan-card-tag plan-card-tag-live">✦ Limited Offer</span>
+            <span id="card-live-save" class="plan-card-save plan-card-save-live">Save ₹400</span>
+          </div>
+
+          <div class="plan-info-box plan-info-box-live">
+            Get your ready-made website link &amp; QR within 24 hours
+          </div>
+
+          <div class="plan-features-list">
+            <div class="plan-feature-row">
+              <svg class="check-icon" style="color:#38bdf8;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>Fully deployed website</span>
+            </div>
+            <div class="plan-feature-row">
+              <svg class="check-icon" style="color:#38bdf8;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>Personalized text &amp; content</span>
+            </div>
+            <div class="plan-feature-row">
+              <svg class="check-icon" style="color:#38bdf8;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>Ready to use website</span>
+            </div>
+            <div class="plan-feature-row">
+              <svg class="check-icon" style="color:#38bdf8;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>Shareable live link &amp; QR</span>
+            </div>
+          </div>
+
+          <a id="whatsapp-order-live-btn" href="#" target="_blank" rel="noopener noreferrer" class="plan-action-btn plan-btn-live">
+            Order Live Site
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Suggested Templates Section -->
+      <section id="suggested-templates-section" class="suggested-section">
+        <!-- 1 & 2: Subtle Horizontal Divider with Centered Badge -->
+        <div class="suggested-divider-wrap scroll-reveal-item" style="--reveal-delay: 0ms;">
+          <div class="suggested-divider-line"></div>
+          <div class="suggested-badge">
+            <span class="suggested-badge-dot"></span>
+            <span class="suggested-badge-text">• SUGGESTED TEMPLATES •</span>
+          </div>
+        </div>
+
+        <!-- 3: Main Heading with gradient accent on "Templates" and underline stroke -->
+        <div class="suggested-heading-wrap scroll-reveal-item" style="--reveal-delay: 100ms;">
+          <h2 class="suggested-main-title">
+            Suggested <span class="suggested-title-highlight">Templates</span>
+          </h2>
+          <div class="suggested-title-underline"></div>
+        </div>
+
+        <!-- 4: Subtitle -->
+        <p class="suggested-subtitle-text scroll-reveal-item" style="--reveal-delay: 180ms;">
+          More templates you might love
+        </p>
+
+        <!-- 7: Template Cards Grid -->
+        <div id="suggested-templates-grid" class="suggested-grid scroll-reveal-item" style="--reveal-delay: 260ms;">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- Interactive Live Demo Fullscreen Modal -->
+  <div id="live-demo-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/85 backdrop-blur-md p-3 sm:p-6 overflow-y-auto">
+    <div class="relative w-full max-w-sm bg-[#0a0d17] border border-[#252a33] rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+      
+      <!-- Demo Modal Header -->
+      <div class="flex items-center justify-between px-4 py-3 border-b border-[#1c202a] bg-white/[0.02]">
+        <div class="flex items-center gap-2">
+          <div class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
+          <span id="demo-modal-title" class="text-xs font-bold text-white">Cinematic-Birthday • Live Demo</span>
+        </div>
+        <button onclick="closeLiveDemoModal()" class="p-1 rounded-lg text-neutral-400 hover:text-white hover:bg-white/10 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- Interactive Simulator Body -->
+      <div id="interactive-demo-stage" class="p-5 flex-1 overflow-y-auto flex flex-col items-center justify-center min-h-[300px] text-center select-none">
+        <!-- Dynamically rendered -->
+      </div>
+
+      <!-- Demo Modal Footer -->
+      <div class="px-4 py-2.5 border-t border-[#1c202a] bg-white/[0.01] flex items-center justify-between gap-2 text-xs">
+        <div class="text-neutral-400 flex items-center gap-1 text-[11px]">
+          <span>💡 Tip:</span>
+          <span id="demo-tip-text">Enter passcode 1234</span>
+        </div>
+        <button onclick="toggleAudioSynth()" id="demo-music-btn" class="px-2.5 py-1 rounded-full bg-white/10 hover:bg-white/20 text-white font-medium flex items-center gap-1 text-[11px] transition-colors">
+          <span>🎵</span> <span id="demo-music-status">Play Music</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Country & Currency Modal -->
+  <div id="country-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+    <div class="relative w-full max-w-xs rounded-2xl border border-[#252a33] bg-[#0b0e17] p-5 shadow-2xl space-y-3">
+      <div class="flex items-center justify-between border-b border-[#1c202a] pb-2.5">
+        <h3 class="text-sm font-bold text-white">Select Region &amp; Currency</h3>
+        <button onclick="closeCountryModal()" class="text-neutral-400 hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+      <div class="space-y-1.5 text-xs">
+        <button onclick="selectCurrency('INR', '🇮🇳', 'INR (₹)')" class="w-full flex items-center justify-between p-2.5 rounded-xl hover:bg-white/10 transition-colors text-white border border-white/5">
+          <span class="flex items-center gap-2"><span>🇮🇳</span> <span>India</span></span>
+          <span class="font-bold text-brand">INR (₹)</span>
+        </button>
+        <button onclick="selectCurrency('PKR', '🇵🇰', 'PKR (Rs)')" class="w-full flex items-center justify-between p-2.5 rounded-xl hover:bg-white/10 transition-colors text-white border border-white/5">
+          <span class="flex items-center gap-2"><span>🇵🇰</span> <span>Pakistan</span></span>
+          <span class="font-bold text-neutral-400">PKR (Rs)</span>
+        </button>
+        <button onclick="selectCurrency('BDT', '🇧🇩', 'BDT (৳)')" class="w-full flex items-center justify-between p-2.5 rounded-xl hover:bg-white/10 transition-colors text-white border border-white/5">
+          <span class="flex items-center gap-2"><span>🇧🇩</span> <span>Bangladesh</span></span>
+          <span class="font-bold text-neutral-400">BDT (৳)</span>
+        </button>
+        <button onclick="selectCurrency('USD', '🌐', 'USD ($)')" class="w-full flex items-center justify-between p-2.5 rounded-xl hover:bg-white/10 transition-colors text-white border border-white/5">
+          <span class="flex items-center gap-2"><span>🌐</span> <span>International</span></span>
+          <span class="font-bold text-neutral-400">USD ($)</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Complete Application Script -->
+  <script>
+    const TEMPLATES_DATA = [
+      {
+        id: 'cinematic-birthday',
+        slug: 'cinematic-birthday',
+        title: 'Cinematic-Birthday',
+        category: 'Birthday',
+        badges: ['Birthday', 'New'],
+        codePrice: 299,
+        codeOriginalPrice: 500,
+        livePrice: 399,
+        liveOriginalPrice: 799,
+        subtitle: 'Passkey - 1234 | Craft unique, colorful birthday surprises with easy-to-use designs that bring smiles and unforgettable moments.',
+        description: 'Passkey - 1234 | Craft unique, colorful birthday surprises with easy-to-use designs that bring smiles and unforgettable moments.',
+        passkey: '1234',
+        previewType: 'cinematic-birthday',
+        features: [
+          'Colorful confetti animation',
+          'background music',
+          'Photo section',
+          'Interactive cake section'
+        ]
+      },
+      {
+        id: 'birthday-p3',
+        slug: 'birthday-p3',
+        title: 'Birthday-P3',
+        category: 'Birthday',
+        badges: ['Birthday', 'Popular'],
+        codePrice: 330,
+        codeOriginalPrice: 550,
+        livePrice: 430,
+        liveOriginalPrice: 850,
+        subtitle: 'Craft unique, colorful birthday surprises with easy-to-use designs that bring smiles and unforgettable moments.',
+        description: 'Birthday Template: Craft unique, colorful birthday surprises with easy-to-use designs that bring smiles and unforgettable moments.',
+        passkey: null,
+        previewType: 'birthday-p3',
+        features: [
+          'Cute animated glowing bear character',
+          'Interactive floating birthday balloon pops',
+          'Personalized wish typing effect',
+          'Celebration sound fx and melody'
+        ]
+      },
+      {
+        id: 'raksha-bandhan',
+        slug: 'raksha-bandhan',
+        title: 'Raksha-Bandhan',
+        category: 'Love',
+        badges: ['Love', 'Festival'],
+        codePrice: 249,
+        codeOriginalPrice: 450,
+        livePrice: 349,
+        liveOriginalPrice: 699,
+        subtitle: 'Special festival template celebrating sibling love with animated Rakhi, custom blessings, gift unwrapping, and childhood memory gallery.',
+        description: 'Special festival template celebrating sibling love with animated Rakhi, custom blessings, gift unwrapping, and childhood memory gallery.',
+        passkey: null,
+        previewType: 'rakhi',
+        features: [
+          'Interactive clicking Rakhi with sparkle animations',
+          'Sibling childhood memory gallery',
+          'Traditional festive background melody',
+          'Customizable sibling promise cards'
+        ]
+      },
+      {
+        id: 'love-flower',
+        slug: 'love-flower',
+        title: 'Love-flower',
+        category: 'Love',
+        badges: ['Love', 'Romantic'],
+        codePrice: 280,
+        codeOriginalPrice: 499,
+        livePrice: 380,
+        liveOriginalPrice: 799,
+        subtitle: 'Romantic blooming flower bouquet with interactive love letter, custom notes, and soft background melody.',
+        description: 'Romantic blooming flower bouquet with interactive love letter, custom notes, and soft background melody.',
+        passkey: null,
+        previewType: 'love-flower',
+        features: [
+          'Interactive flower blooming animation',
+          'Handwritten style letter unfolding',
+          'Romantic background song integration',
+          'Custom love messages and photos'
+        ]
+      },
+      {
+        id: 'scrapbook',
+        slug: 'scrapbook',
+        title: 'Scrapbook',
+        category: 'Love',
+        badges: ['Love', 'Vintage'],
+        codePrice: 290,
+        codeOriginalPrice: 520,
+        livePrice: 390,
+        liveOriginalPrice: 820,
+        subtitle: 'Vintage botanical memory scrapbook with wax seal envelope, photo flip pages, and intimate love journal entries.',
+        description: 'Vintage botanical memory scrapbook with wax seal envelope, photo flip pages, and intimate love journal entries.',
+        passkey: null,
+        previewType: 'scrapbook',
+        features: [
+          'Realistic wax seal breaking animation',
+          'Interactive flipbook photo scrapbook',
+          'Vintage paper textures and typography',
+          'Background acoustic romantic soundtrack'
+        ]
+      },
+      {
+        id: 'wedding-site2',
+        slug: 'wedding-site2',
+        title: 'Wedding Site 2',
+        category: 'Wedding',
+        badges: ['Wedding', 'Luxury'],
+        codePrice: 450,
+        codeOriginalPrice: 800,
+        livePrice: 599,
+        liveOriginalPrice: 1200,
+        subtitle: 'Luxury digital wedding invitation with ceremony schedule, RSVP form, Google Map directions, and couple story gallery.',
+        description: 'Luxury digital wedding invitation with ceremony schedule, RSVP form, Google Map directions, and couple story gallery.',
+        passkey: null,
+        previewType: 'wedding2',
+        features: [
+          'Luxury typography & romantic floral arch animations',
+          'Live countdown timer to the auspicious ceremony',
+          'Google Maps venue integration & schedule',
+          'Interactive digital RSVP submission'
+        ]
+      }
+    ];
+
+    let currentProduct = TEMPLATES_DATA[0];
+    let currentCurrency = { code: 'INR', symbol: '₹', rate: 1 };
+    let passcodeEntered = '';
+    let audioContext = null;
+    let isPlayingAudio = false;
+
+    // Detect product from URL
+    function detectProduct() {
+      const path = window.location.pathname;
+      const urlParams = new URLSearchParams(window.location.search);
+      const queryId = urlParams.get('id');
+
+      let slug = '';
+      if (queryId) {
+        slug = queryId;
+      } else {
+        const parts = path.split('/').filter(Boolean);
+        if (parts.length >= 2 && parts[0] === 'products') {
+          slug = parts[1].replace('.html', '').replace('index', '');
+        }
+      }
+
+      if (slug) {
+        slug = slug.toLowerCase().replace(/[^a-z0-9\-]/g, '');
+        const matched = TEMPLATES_DATA.find(t => t.id === slug || t.slug === slug || t.title.toLowerCase().replace(/\s+/g, '-') === slug);
+        if (matched) {
+          currentProduct = matched;
+        }
+      }
+    }
+
+    function formatPrice(amount) {
+      if (amount === 0) return 'Free';
+      const converted = Math.round(amount * currentCurrency.rate);
+      return currentCurrency.symbol + converted;
+    }
+
+    // Render product details into DOM
+    function renderProductPage() {
+      const item = currentProduct;
+
+      // Meta and titles
+      document.title = `${item.title} – Wishly`;
+      const metaTitle = document.getElementById('meta-title');
+      if (metaTitle) metaTitle.textContent = `${item.title} – Wishly`;
+      const metaDesc = document.getElementById('meta-desc');
+      if (metaDesc) metaDesc.setAttribute('content', item.subtitle || item.description);
+
+      const el_breadcrumb_title = document.getElementById('breadcrumb-title'); if (el_breadcrumb_title) el_breadcrumb_title.textContent = item.title;
+      const el_product_title = document.getElementById('product-title'); if (el_product_title) el_product_title.textContent = item.title;
+      const el_product_subtitle = document.getElementById('product-subtitle'); if (el_product_subtitle) el_product_subtitle.textContent = item.subtitle || item.description;
+
+      // Badges
+      const badgesContainer = document.getElementById('product-badges-container');
+      if (badgesContainer) badgesContainer.innerHTML = item.badges.map((b, idx) => {
+        const isNew = b === 'New';
+        const cls = isNew ? 'cat-badge cat-badge-new' : 'cat-badge cat-badge-birthday';
+        return `<span class="${cls}">${b}</span>`;
+      }).join('');
+
+      // Top Pricing Bar Prices
+      const el_sticky_code_price = document.getElementById('sticky-code-price'); if (el_sticky_code_price) el_sticky_code_price.textContent = formatPrice(item.codePrice);
+      const el_sticky_live_price = document.getElementById('sticky-live-price'); if (el_sticky_live_price) el_sticky_live_price.textContent = formatPrice(item.livePrice);
+
+      // Card 1: Code Price & Savings
+      const el_card_code_price = document.getElementById('card-code-price'); if (el_card_code_price) el_card_code_price.textContent = formatPrice(item.codePrice);
+      const el_card_code_orig = document.getElementById('card-code-orig'); if (el_card_code_orig) el_card_code_orig.textContent = formatPrice(item.codeOriginalPrice);
+      const codeSavings = item.codeOriginalPrice - item.codePrice;
+      const el_card_code_save = document.getElementById('card-code-save'); if (el_card_code_save) el_card_code_save.textContent = `Save ${formatPrice(codeSavings)}`;
+
+      // Card 2: Live Price & Savings
+      const el_card_live_price = document.getElementById('card-live-price'); if (el_card_live_price) el_card_live_price.textContent = formatPrice(item.livePrice);
+      const el_card_live_orig = document.getElementById('card-live-orig'); if (el_card_live_orig) el_card_live_orig.textContent = formatPrice(item.liveOriginalPrice);
+      const liveSavings = item.liveOriginalPrice - item.livePrice;
+      const el_card_live_save = document.getElementById('card-live-save'); if (el_card_live_save) el_card_live_save.textContent = `Save ${formatPrice(liveSavings)}`;
+
+      // WhatsApp Checkout Buttons
+      const msgCode = encodeURIComponent(`Hi Wishly, I want to purchase the "${item.title}" Source Code (${formatPrice(item.codePrice)}). Please provide payment instructions.`);
+      const msgLive = encodeURIComponent(`Hi Wishly, I want to order the "${item.title}" Live Website (${formatPrice(item.livePrice)}). Please share the setup process.`);
+      
+      const el_whatsapp_buy_code_btn = document.getElementById('whatsapp-buy-code-btn'); if (el_whatsapp_buy_code_btn) el_whatsapp_buy_code_btn.href = `https://wa.me/918092464955?text=${msgCode}`;
+      const el_whatsapp_order_live_btn = document.getElementById('whatsapp-order-live-btn'); if (el_whatsapp_order_live_btn) el_whatsapp_order_live_btn.href = `https://wa.me/918092464955?text=${msgLive}`;
+
+      // What's Included List
+      const includedContainer = document.getElementById('whats-included-list');
+      if (includedContainer) includedContainer.innerHTML = item.features.map(f => `
+        <div class="checklist-row">
+          <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+          </svg>
+          <span>${f}</span>
+        </div>
+      `).join('');
+
+      // Hero Preview Visual Frame
+      const previewEl = document.getElementById('product-hero-preview'); if (previewEl) previewEl.innerHTML = renderHeroVisual(item);
+
+      // Suggested Templates
+      renderSuggestedTemplates();
+    }
+
+    // Render Hero Visual frame tailored to match the FIRST Reference Screenshot
+    function renderHeroVisual(item) {
+      let imgSrc = '';
+      if (item.id === 'cinematic-birthday' || item.previewType === 'cinematic-birthday') {
+        imgSrc = '/product/c-birthday.png';
+      } else if (item.id === 'birthday-p3') {
+        imgSrc = '/product/birthday-p3.png';
+      } else if (item.id === 'raksha-bandhan') {
+        imgSrc = '/product/rakhi.png';
+      }
+      
+      if (imgSrc) {
+        return `<img src="${imgSrc}" alt="${item.title}" style="width:100%; aspect-ratio: 1.65/1; object-fit:cover; display:block;">`;
+      }
+      
+      // Default fallback
+      return `
+        <div class="hero-preview-inner" style="justify-content:center; text-align:center; aspect-ratio: 1.65/1;">
+          <div>
+            <div style="font-size:22px; margin-bottom:4px;">✨ 🎂 🎉</div>
+            <div style="font-size:15px; font-weight:700; color:#FFFFFF;">${item.title}</div>
+            <div style="font-size:11px; color:#9ca3af; margin-top:2px;">${item.category} Template • Wishly</div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Render Suggested Templates Grid
+    function renderSuggestedTemplates() {
+      const grid = document.getElementById('suggested-templates-grid');
+      const suggestions = TEMPLATES_DATA.filter(t => t.id !== currentProduct.id).slice(0, 4);
+
+      if (grid) grid.innerHTML = suggestions.map(item => `
+        <a href="/products/${item.id}" class="suggested-card-link">
+          <div class="suggested-thumb-frame">
+            ${renderThumbnailSmall(item)}
+          </div>
+          <div class="suggested-card-title">${item.title}</div>
+          <div class="suggested-card-price">${formatPrice(item.codePrice)}</div>
+        </a>
+      `).join('');
+    }
+
+    function renderThumbnailSmall(item) {
+      if (item.id === 'cinematic-birthday') {
+        return `<img src="/product/c-birthday.png" alt="${item.title}" style="width:100%; height:100%; object-fit:cover;">`;
+      }
+      if (item.id === 'birthday-p3') {
+        return `<img src="/product/birthday-p3.png" alt="${item.title}" style="width:100%; height:100%; object-fit:cover;">`;
+      }
+      if (item.id === 'raksha-bandhan') {
+        return `<img src="/product/rakhi.png" alt="${item.title}" style="width:100%; height:100%; object-fit:cover;">`;
+      }
+      return `
+        <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.04); font-size:18px;">
+          🎁
+        </div>
+      `;
+    }
+
+    // Interactive Live Demo Modal
+    function openLiveDemoModal() {
+      const modal = document.getElementById('live-demo-modal');
+      const stage = document.getElementById('interactive-demo-stage');
+      const titleEl = document.getElementById('demo-modal-title');
+      const tipEl = document.getElementById('demo-tip-text');
+
+      titleEl.textContent = `${currentProduct.title} • Live Demo`;
+      passcodeEntered = '';
+
+      if (currentProduct.passkey) {
+        tipEl.textContent = `Passcode is ${currentProduct.passkey}`;
+        if (stage) stage.innerHTML = `
+          <div id="demo-passcode-view" class="w-full max-w-xs space-y-3">
+            <div class="w-10 h-10 rounded-full bg-pink-500/20 text-pink-400 flex items-center justify-center mx-auto text-lg border border-pink-500/30">
+              🔒
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-white">Enter Secret Passcode</h4>
+              <p class="text-[11px] text-pink-300">Type <span class="font-bold underline">${currentProduct.passkey}</span> to unlock</p>
+            </div>
+            <div class="flex items-center justify-center gap-2.5 py-1">
+              <div id="pdot-0" class="w-2.5 h-2.5 rounded-full border border-pink-400 bg-transparent"></div>
+              <div id="pdot-1" class="w-2.5 h-2.5 rounded-full border border-pink-400 bg-transparent"></div>
+              <div id="pdot-2" class="w-2.5 h-2.5 rounded-full border border-pink-400 bg-transparent"></div>
+              <div id="pdot-3" class="w-2.5 h-2.5 rounded-full border border-pink-400 bg-transparent"></div>
+            </div>
+            <div class="grid grid-cols-3 gap-1.5 w-full max-w-[170px] mx-auto pt-1">
+              ${[1,2,3,4,5,6,7,8,9].map(n => `
+                <button onclick="pressPasscodeDigit('${n}')" class="h-8 rounded-lg bg-white/10 hover:bg-white/20 text-xs font-bold text-white transition-all active:scale-95">${n}</button>
+              `).join('')}
+              <button onclick="clearPasscode()" class="h-8 rounded-lg bg-rose-900/40 hover:bg-rose-900/60 text-[10px] font-semibold text-rose-300">Clear</button>
+              <button onclick="pressPasscodeDigit('0')" class="h-8 rounded-lg bg-white/10 hover:bg-white/20 text-xs font-bold text-white transition-all active:scale-95">0</button>
+              <button onclick="verifyPasscode()" class="h-8 rounded-lg bg-emerald-600/70 hover:bg-emerald-600 text-[10px] font-bold text-white">OK</button>
+            </div>
+          </div>
+        `;
+      } else {
+        tipEl.textContent = 'Interactive Preview Active';
+        if (stage) stage.innerHTML = `
+          <div class="space-y-3">
+            <div class="text-3xl animate-bounce">🎉 🎂 ✨</div>
+            <h4 class="text-base font-bold text-white">${currentProduct.title}</h4>
+            <p class="text-xs text-neutral-300 max-w-xs mx-auto">${currentProduct.subtitle || currentProduct.description}</p>
+            <div class="pt-2">
+              <button onclick="triggerConfettiShower()" class="px-4 py-2 rounded-xl bg-gradient-to-r from-pink-600 to-rose-600 text-white font-bold text-xs shadow-lg hover:brightness-110 active:scale-95 transition-all">
+                🎉 Blow Candles &amp; Pop Confetti!
+              </button>
+            </div>
+          </div>
+        `;
+      }
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLiveDemoModal() {
+      const modal = document.getElementById('live-demo-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = 'auto';
+      stopAudioSynth();
+    }
+
+    function pressPasscodeDigit(digit) {
+      if (passcodeEntered.length < 4) {
+        passcodeEntered += digit;
+        updatePasscodeDots();
+        if (passcodeEntered.length === 4) {
+          setTimeout(verifyPasscode, 250);
+        }
+      }
+    }
+
+    function clearPasscode() {
+      passcodeEntered = '';
+      updatePasscodeDots();
+    }
+
+    function updatePasscodeDots() {
+      for (let i = 0; i < 4; i++) {
+        const dot = document.getElementById(`pdot-${i}`);
+        if (dot) {
+          if (i < passcodeEntered.length) {
+            dot.className = 'w-2.5 h-2.5 rounded-full border border-pink-400 bg-pink-500 shadow-[0_0_6px_rgba(244,63,94,0.8)]';
+          } else {
+            dot.className = 'w-2.5 h-2.5 rounded-full border border-pink-400 bg-transparent';
+          }
+        }
+      }
+    }
+
+    function verifyPasscode() {
+      if (passcodeEntered === currentProduct.passkey || passcodeEntered === '1234') {
+        const stage = document.getElementById('interactive-demo-stage');
+        if (stage) stage.innerHTML = `
+          <div class="space-y-2.5 text-center">
+            <div class="text-4xl animate-bounce">💖 🎂 🎉</div>
+            <h3 class="font-cursive text-xl font-bold text-pink-400">Happy Birthday My Love!</h3>
+            <p class="text-xs text-neutral-200 max-w-xs mx-auto">
+              "You make every single day brighter, warmer, and full of love. Wishing you the happiest birthday ever!"
+            </p>
+            <div class="pt-2 flex justify-center gap-2">
+              <button onclick="triggerConfettiShower()" class="px-3 py-1.5 rounded-lg bg-pink-600 text-white text-xs font-bold hover:bg-pink-500 shadow transition-all">
+                ✨ Pop Confetti
+              </button>
+              <button onclick="openLiveDemoModal()" class="px-3 py-1.5 rounded-lg bg-white/10 text-neutral-300 text-xs font-semibold hover:bg-white/20 transition-all">
+                Lock Again
+              </button>
+            </div>
+          </div>
+        `;
+        triggerConfettiShower();
+        playAudioSynth();
+      } else {
+        alert('Incorrect passcode! Please try 1234.');
+        clearPasscode();
+      }
+    }
+
+    function triggerConfettiShower() {
+      const emojis = ['🎉', '✨', '💖', '🎂', '🎈', '🌸', '💐'];
+      for (let i = 0; i < 14; i++) {
+        const el = document.createElement('div');
+        el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        el.className = 'fixed text-lg pointer-events-none transition-all duration-1000 z-50';
+        el.style.left = `${25 + Math.random() * 50}%`;
+        el.style.top = `${35 + Math.random() * 25}%`;
+        document.body.appendChild(el);
+        setTimeout(() => {
+          el.style.transform = `translate(${(Math.random() - 0.5) * 260}px, ${(Math.random() - 1) * 260}px) scale(1.3)`;
+          el.style.opacity = '0';
+        }, 20);
+        setTimeout(() => el.remove(), 1100);
+      }
+    }
+
+    // Synthesizer
+    function toggleAudioSynth() {
+      if (isPlayingAudio) {
+        stopAudioSynth();
+      } else {
+        playAudioSynth();
+      }
+    }
+
+    function playAudioSynth() {
+      try {
+        if (!audioContext) {
+          audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioContext.state === 'suspended') {
+          audioContext.resume();
+        }
+
+        const notes = [261.63, 293.66, 329.63, 349.23, 392.00, 440.00, 523.25];
+        const playNote = (freq, duration) => {
+          const osc = audioContext.createOscillator();
+          const gain = audioContext.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(freq, audioContext.currentTime);
+          gain.gain.setValueAtTime(0.05, audioContext.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + duration);
+          osc.connect(gain);
+          gain.connect(audioContext.destination);
+          osc.start();
+          osc.stop(audioContext.currentTime + duration);
+        };
+
+        playNote(notes[0], 0.4);
+        setTimeout(() => playNote(notes[2], 0.4), 300);
+        setTimeout(() => playNote(notes[4], 0.4), 600);
+        setTimeout(() => playNote(notes[6], 0.8), 900);
+
+        isPlayingAudio = true;
+        const btn = document.getElementById('demo-music-status');
+        if (btn) btn.textContent = 'Pause Music';
+      } catch(e) {
+        console.log('Audio error:', e);
+      }
+    }
+
+    function stopAudioSynth() {
+      isPlayingAudio = false;
+      const status = document.getElementById('demo-music-status');
+      if (status) status.textContent = 'Play Music';
+    }
+
+    // Mobile Drawer toggle
+    function toggleMobileMenu() {
+      const drawer = document.getElementById('mobile-menu-drawer');
+      const iconOpen = document.getElementById('icon-menu-open');
+      const iconClose = document.getElementById('icon-menu-close');
+
+      const isHidden = drawer.classList.contains('hidden');
+      if (isHidden) {
+        drawer.classList.remove('hidden');
+        iconOpen.classList.add('hidden');
+        iconClose.classList.remove('hidden');
+      } else {
+        drawer.classList.add('hidden');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+      }
+    }
+
+    // Currency Switcher Modal
+    function openCountryModal() {
+      document.getElementById('country-modal').classList.remove('hidden');
+      document.getElementById('country-modal').classList.add('flex');
+    }
+
+    function closeCountryModal() {
+      document.getElementById('country-modal').classList.add('hidden');
+      document.getElementById('country-modal').classList.remove('flex');
+    }
+
+    function selectCurrency(code, flag, label) {
+      if (code === 'INR') {
+        currentCurrency = { code: 'INR', symbol: '₹', rate: 1 };
+      } else if (code === 'PKR') {
+        currentCurrency = { code: 'PKR', symbol: 'Rs ', rate: 3.3 };
+      } else if (code === 'BDT') {
+        currentCurrency = { code: 'BDT', symbol: '৳', rate: 1.4 };
+      } else if (code === 'USD') {
+        currentCurrency = { code: 'USD', symbol: '$', rate: 0.012 };
+      }
+
+      const el_current_country_flag = document.getElementById('current-country-flag'); if (el_current_country_flag) el_current_country_flag.textContent = flag;
+      const el_current_country_label = document.getElementById('current-country-label'); if (el_current_country_label) el_current_country_label.textContent = label;
+
+      closeCountryModal();
+      renderProductPage();
+    }
+
+    // Modal background click to close
+    window.addEventListener('click', (e) => {
+      const dModal = document.getElementById('live-demo-modal');
+      const cModal = document.getElementById('country-modal');
+      if (e.target === dModal) closeLiveDemoModal();
+      if (e.target === cModal) closeCountryModal();
+    });
+
+    // Close on Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeLiveDemoModal();
+        closeCountryModal();
+      }
+    });
+
+    // Scroll Reveal Observer for Suggested Templates
+    function initScrollReveal() {
+      const targetSection = document.getElementById('suggested-templates-section');
+      if (!targetSection) return;
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              targetSection.classList.add('is-revealed');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.12,
+          rootMargin: '0px 0px -30px 0px'
+        });
+
+        observer.observe(targetSection);
+      } else {
+        // Fallback for environments without IntersectionObserver
+        targetSection.classList.add('is-revealed');
+      }
+    }
+
+    // Initialize product page
+    window.addEventListener('DOMContentLoaded', () => {
+      // Clean any option-live hash from URL
+      if (window.location.hash === '#option-live' || window.location.hash.includes('option-live')) {
+        if (window.history && window.history.replaceState) {
+          window.history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
+      }
+
+      // Smooth scroll without hash mutation
+      document.getElementById('sticky-code-btn')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById('option-code')?.scrollIntoView({ behavior: 'smooth' });
+      });
+
+      document.getElementById('sticky-live-btn')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById('option-live')?.scrollIntoView({ behavior: 'smooth' });
+      });
+
+      detectProduct();
+      renderProductPage();
+      initScrollReveal();
+    });
+  </script>
+
+<script src="/components/topbar.js"></script>
+</body>
+</html>

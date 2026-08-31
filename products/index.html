@@ -465,6 +465,76 @@
         box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
       }
 
+      /* Apple Hello SVG Animation */
+      .apple-hello-svg {
+        height: 28px;
+        width: auto;
+        color: #ffffff;
+        display: inline-block;
+        vertical-align: middle;
+        filter: drop-shadow(0 2px 10px rgba(255, 255, 255, 0.2));
+        transition:
+          transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+          filter 0.3s ease;
+      }
+      @media (min-width: 640px) {
+        .apple-hello-svg {
+          height: 32px;
+        }
+      }
+      .group:hover .apple-hello-svg {
+        transform: scale(1.04);
+        filter: drop-shadow(0 2px 14px rgba(255, 255, 255, 0.35));
+      }
+
+      .apple-hello-path {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        opacity: 0;
+      }
+
+      .apple-hello-path.path-h1 {
+        stroke-dasharray: 600;
+        stroke-dashoffset: 600;
+        animation: appleHelloDrawH1 0.85s cubic-bezier(0.4, 0, 0.2, 1) forwards
+          0.15s;
+      }
+
+      .apple-hello-path.path-h2 {
+        stroke-dasharray: 2800;
+        stroke-dashoffset: 2800;
+        animation: appleHelloDrawH2 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards
+          0.65s;
+      }
+
+      @keyframes appleHelloDrawH1 {
+        0% {
+          stroke-dashoffset: 600;
+          opacity: 0;
+        }
+        15% {
+          opacity: 1;
+        }
+        100% {
+          stroke-dashoffset: 0;
+          opacity: 1;
+        }
+      }
+
+      @keyframes appleHelloDrawH2 {
+        0% {
+          stroke-dashoffset: 2800;
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        100% {
+          stroke-dashoffset: 0;
+          opacity: 1;
+        }
+      }
+
       /* Scrollbars */
       .no-scrollbar::-webkit-scrollbar {
         display: none;
