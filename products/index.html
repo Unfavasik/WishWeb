@@ -54,6 +54,7 @@
         color-scheme: dark;
       }
       body {
+        font-family: 'Caveat Brush', cursive;
         background-color: #08090b !important;
         color: #f2f2f2;
         font-family:
@@ -547,6 +548,9 @@
         scrollbar-width: none;
       }
     </style>
+      <link href="https://fonts.googleapis.com/css2?family=Montenegrin+Gothic+One&display=swap" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@600;700;800;900&display=swap" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet" />
   </head>
   <body
     class="min-h-screen bg-[#08090B] text-[#F2F2F2] selection:bg-blue-500/30 selection:text-white"
@@ -605,18 +609,23 @@
               text-align: left;
               min-width: 0;
               display: flex;
-              flex-wrap: wrap;
-              justify-content: flex-start;
+              flex-wrap: nowrap;
               align-items: center;
-              gap: 8px 12px;
-              line-height: 1.2;
-            "
+              gap: 12px;
+              line-height: 1.15;
+              font-size: clamp(2rem, 4vw, 3.25rem);
+              font-weight: 800;
+              letter-spacing: -0.025em;
+              white-space: nowrap;
+            ; font-family: 'League Spartan', sans-serif;"
           >
-            <span style="color: #ffffff; font-weight: 600">Website</span>
+            <span style="color: #ffffff; font-weight: 800; letter-spacing: -0.03em;">Website</span>
             <span
               style="
                 color: #f80612;
-                text-shadow: 0 4px 32px rgba(248, 6, 18, 0.4);
+                font-weight: 800;
+                letter-spacing: -0.03em;
+                text-shadow: 0 0 35px rgba(248, 6, 18, 0.55), 0 0 70px rgba(248, 6, 18, 0.25);
               "
               >Templates</span
             >
