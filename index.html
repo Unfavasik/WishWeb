@@ -479,6 +479,32 @@
       <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@600;700;800;900&display=swap" rel="stylesheet" />
       <link href="https://fonts.googleapis.com/css2?family=Boogaloo&display=swap" rel="stylesheet" />
       <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet" />
+      <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+          apiKey: "AIzaSyCprreJvHc9vxKCg16BFek_Mg0wtUQ5y-k",
+          authDomain: "corehub-prod.firebaseapp.com",
+          projectId: "corehub-prod",
+          storageBucket: "corehub-prod.firebasestorage.app",
+          messagingSenderId: "456306038319",
+          appId: "1:456306038319:web:cc96a5ad63d6a512e6d8da"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const firestoreDb = getFirestore(app, 'ai-studio-wishly-2413de9a-8670-46fb-bf71-efdf7d235d91');
+
+        window.firebase = {
+          firestore: () => ({
+            collection: (colName) => ({
+              get: () => getDocs(collection(firestoreDb, colName))
+            })
+          })
+        };
+
+        window.dispatchEvent(new Event('firebase-ready'));
+      </script>
   </head>
   <body>
     <div hidden=""><!--$--><!--/$--></div>
@@ -614,7 +640,7 @@
             Our most loved templates — handcrafted for birthdays, anniversaries,
             love and special moments.
           </p>
-          <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div id="index-products-grid" class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <a
               class="block group"
               aria-label="View Cinematic-Birthday – Birthday template"
@@ -5837,6 +5863,68 @@
             100 + index * 80,
           );
         });
+
+        // 5. Fetch Products from Firestore
+        function initIndexProducts() {
+          const db = firebase.firestore();
+          db.collection('products').get().then(snapshot => {
+            const grid = document.getElementById('index-products-grid');
+            if (!grid) return;
+            if (snapshot.empty) {
+              grid.innerHTML = `
+                <div class="col-span-full text-center py-16 px-4">
+                  <h3 class="text-lg font-semibold text-white mb-1">No templates available yet</h3>
+                  <p class="text-sm text-muted-foreground max-w-sm mx-auto">No templates available yet. Please check back later or add templates from the admin panel.</p>
+                </div>
+              `;
+              return;
+            }
+            let html = '';
+            snapshot.forEach(doc => {
+              const p = doc.data();
+              const id = p.id || doc.id;
+              const title = p.title || 'Template';
+              const category = p.category || 'Special';
+              const price = p.price || 250;
+              const originalPrice = p.originalPrice || 400;
+              const desc = p.description || '';
+              const imageSrc = p.imageSrc || '/_next/image?url=%2Fproduct%2Fc-birthday.png&w=640&q=75';
+              html += `
+                <a class="block group" aria-label="View ${title}" href="/products/detail.html?id=${id}">
+                  <div class="relative rounded-xl border bg-gradient-to-b from-white/[0.08] to-white/[0.02] text-card-foreground shadow-[0_6px_28px_rgba(0,0,0,0.22),inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-2xl overflow-hidden border-white/10 transition-all duration-300 hover:-translate-y-1 hover:border-brand/30 hover:shadow-[0_12px_40px_rgba(0,0,0,0.4)]">
+                    <div class="relative aspect-video overflow-hidden bg-[#0c0d14]">
+                      <img src="${imageSrc}" alt="${title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    </div>
+                    <div class="p-5 bg-[#0f1015]/60 backdrop-blur-xl">
+                      <div class="flex items-center justify-between mb-2">
+                        <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-brand/10 text-brand border border-brand/20">${category}</span>
+                        <div class="flex items-center gap-2">
+                          <span class="text-xs text-muted-foreground line-through">₹${originalPrice}</span>
+                          <span class="font-display text-lg font-bold text-foreground">₹${price}</span>
+                        </div>
+                      </div>
+                      <h3 class="font-display text-lg font-bold text-foreground group-hover:text-brand transition-colors line-clamp-1">${title}</h3>
+                      <p class="mt-1.5 text-xs text-muted-foreground line-clamp-2 leading-relaxed">${desc}</p>
+                    </div>
+                  </div>
+                </a>
+              `;
+            });
+            grid.innerHTML = html;
+          }).catch(err => {
+            console.error("Error fetching products:", err);
+            const grid = document.getElementById('index-products-grid');
+            if (grid) {
+              grid.innerHTML = `
+                <div class="col-span-full text-center py-16 px-4">
+                  <h3 class="text-lg font-semibold text-white mb-1">No templates available yet</h3>
+                  <p class="text-sm text-muted-foreground max-w-sm mx-auto">No templates available yet. Please check back later or add templates from the admin panel.</p>
+                </div>
+              `;
+            }
+          });
+        }
+        window.addEventListener('firebase-ready', initIndexProducts);
       });
     </script>
 

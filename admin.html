@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wishly Admin Portal - Secure Authentication</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Modular Firebase Wrapper for Named Database -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+      import { getFirestore, collection, doc, getDocs, getDoc, setDoc, addDoc, updateDoc, deleteDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+      import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, signOut, onAuthStateChanged, setPersistence, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyCprreJvHc9vxKCg16BFek_Mg0wtUQ5y-k",
+        authDomain: "corehub-prod.firebaseapp.com",
+        projectId: "corehub-prod",
+        storageBucket: "corehub-prod.firebasestorage.app",
+        messagingSenderId: "456306038319",
+        appId: "1:456306038319:web:cc96a5ad63d6a512e6d8da"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const firestoreDb = getFirestore(app, 'ai-studio-wishly-2413de9a-8670-46fb-bf71-efdf7d235d91');
+      const authInstance = getAuth(app);
+      setPersistence(authInstance, browserLocalPersistence);
+
+      const dbWrapper = {
+        collection(colName) {
+          const colRef = collection(firestoreDb, colName);
+          return {
+            doc(id) {
+              const docRef = id ? doc(firestoreDb, colName, id) : doc(collection(firestoreDb, colName));
+              return {
+                set(data, options) {
+                  return setDoc(docRef, data, options || {});
+                },
+                update(data) {
+                  return updateDoc(docRef, data);
+                },
+                delete() {
+                  return deleteDoc(docRef);
+                },
+                get() {
+                  return getDoc(docRef);
+                }
+              };
+            },
+            get() {
+              return getDocs(colRef);
+            },
+            add(data) {
+              return addDoc(colRef, data);
+            },
+            onSnapshot(callback) {
+              return onSnapshot(colRef, callback);
+            }
+          };
+        }
+      };
+
+      const authWrapper = {
+        auth: authInstance,
+        GoogleAuthProvider,
+        signInWithPopup: (provider) => signInWithPopup(authInstance, provider),
+        signInWithEmailAndPassword: (email, pass) => signInWithEmailAndPassword(authInstance, email, pass),
+        signOut: () => signOut(authInstance),
+        onAuthStateChanged: (cb) => onAuthStateChanged(authInstance, cb),
+        setPersistence: (p) => setPersistence(authInstance, p),
+        Auth: { Persistence: { LOCAL: browserLocalPersistence } }
+      };
+
+      window.firebase = {
+        apps: [app],
+        app: () => app,
+        initializeApp: () => app,
+        auth: () => authWrapper,
+        firestore: () => dbWrapper
+      };
+
+      window.dispatchEvent(new Event('firebase-ready'));
+    </script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Work Sans"', 'sans-serif'],
+              caveat: ['"Caveat Brush"', 'cursive'],
+            },
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        font-family: 'Caveat Brush', 'Work Sans', cursive, sans-serif;
+        background-color: #0b0c10;
+        color: #f3f4f6;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-[#0b0c10] text-gray-100 selection:bg-rose-500 selection:text-white">
+    <!-- Root Container Controlled by Auth State -->
+    <div id="auth-root">
+      <!-- Loading State by Default -->
+      <div id="loading-view" class="min-h-screen bg-[#0b0c10] flex items-center justify-center">
+        <div class="flex flex-col items-center gap-4">
+          <div class="w-12 h-12 border-4 border-rose-500 border-t-transparent rounded-full animate-spin"></div>
+          <p class="text-gray-400 font-sans text-sm animate-pulse">Verifying Admin Access...</p>
+        </div>
+      </div>
+
+      <!-- Login View -->
+      <div id="login-view" class="hidden min-h-screen bg-[#0b0c10] text-gray-100 flex items-center justify-center p-4">
+        <div class="max-w-md w-full bg-[#13151c] border border-white/10 rounded-3xl p-8 shadow-2xl relative overflow-hidden">
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-rose-500 via-pink-500 to-amber-400"></div>
+          
+          <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold tracking-tight bg-gradient-to-r from-rose-400 via-pink-300 to-amber-300 bg-clip-text text-transparent mb-2">
+              Wishly Admin Portal
+            </h1>
+            <p class="text-sm text-gray-400 font-sans">
+              Secure authentication required for store management.
+            </p>
+          </div>
+
+          <div id="login-error" class="hidden mb-6 p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs font-sans"></div>
+
+          <div class="space-y-4 mb-6">
+            <button
+              onclick="handleGoogleLogin()"
+              class="w-full py-3.5 px-4 rounded-xl bg-white text-gray-900 font-medium hover:bg-gray-100 transition-all flex items-center justify-center gap-3 shadow-lg"
+            >
+              <svg class="w-5 h-5" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+                <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.13 0-5.78-2.11-6.73-4.96H1.19v3.15C3.17 21.36 7.24 24 12 24z"/>
+                <path fill="#FBBC05" d="M5.27 14.24c-.25-.72-.39-1.5-.39-2.24s.14-1.52.39-2.24V6.61H1.19C.43 8.14 0 9.87 0 11.75s.43 3.61 1.19 5.14l4.08-3.15z"/>
+                <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.24 0 3.17 2.64 1.19 6.61l4.08 3.15c.95-2.85 3.6-4.96 6.73-4.96z"/>
+              </svg>
+              <span>Sign in with Google</span>
+            </button>
+          </div>
+
+          <div class="mt-6 text-center">
+            <p class="text-xs text-gray-500 font-sans">
+              Authorized admins only: asik.devhub@gmail.com, ayatulsekh3037@gmail.com
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Access Denied View -->
+      <div id="denied-view" class="hidden min-h-screen bg-[#0b0c10] text-gray-100 flex items-center justify-center p-4">
+        <div class="max-w-md w-full bg-[#13151c] border border-rose-500/30 rounded-3xl p-8 shadow-2xl text-center relative overflow-hidden">
+          <div class="w-16 h-16 rounded-2xl bg-rose-500/20 border border-rose-500/40 text-rose-400 flex items-center justify-center mx-auto mb-6 shadow-xl">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+            </svg>
+          </div>
+
+          <h2 class="text-2xl font-bold font-sans mb-2 text-white">Access Denied</h2>
+          <p class="text-sm text-gray-300 font-sans mb-2">
+            You don't have permission to access this dashboard.
+          </p>
+          <p id="denied-email" class="text-xs text-gray-500 mb-6 font-sans bg-black/30 py-2 px-3 rounded-xl border border-white/5"></p>
+
+          <div class="flex flex-col sm:flex-row gap-3">
+            <button
+              onclick="handleLogout()"
+              class="flex-1 py-3 px-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-medium transition-all text-sm border border-white/10"
+            >
+              Logout
+            </button>
+            <a
+              href="/"
+              class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white font-medium transition-all text-sm shadow-lg shadow-rose-600/30 flex items-center justify-center"
+            >
+              Back to Home
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dashboard View (Protected) -->
+      <div id="dashboard-view" class="hidden">
+        <!-- Top Navigation -->
+        <header class="border-b border-white/10 bg-[#0f1015]/80 backdrop-blur-md sticky top-0 z-50">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-0 sm:h-20 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-0">
+            <div class="flex items-center justify-between w-full sm:w-auto">
+              <div class="flex items-center gap-3">
+                <a href="/products" class="text-2xl font-caveat tracking-wide bg-gradient-to-r from-rose-400 via-pink-300 to-amber-300 bg-clip-text text-transparent">
+                  Wishly Admin
+                </a>
+                <span class="px-3 py-1 text-xs rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30">Dashboard</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-end gap-2 sm:gap-4 w-full sm:w-auto flex-wrap">
+              <span id="admin-user-badge" class="hidden sm:inline-block text-xs text-gray-400 bg-white/5 px-3 py-1.5 rounded-lg border border-white/5"></span>
+              <a href="/products" class="px-3.5 py-2 text-xs sm:text-sm font-medium rounded-xl bg-white/10 hover:bg-white/20 transition-all text-white border border-white/10 flex items-center justify-center min-h-[40px] sm:min-h-0">
+                View Storefront
+              </a>
+              <button onclick="openAddModal()" class="px-4 sm:px-5 py-2.5 text-xs sm:text-sm font-medium rounded-xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 transition-all text-white shadow-lg shadow-rose-600/30 flex items-center gap-2 min-h-[40px] sm:min-h-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                <span>Add Product</span>
+              </button>
+              <button onclick="handleLogout()" class="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition-all border border-white/10 min-h-[40px] min-w-[40px] flex items-center justify-center" title="Logout">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+              </button>
+            </div>
+          </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+          <!-- Stats Overview -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
+            <div class="p-6 rounded-2xl bg-[#13151c] border border-white/10 shadow-xl">
+              <p class="text-sm text-gray-400 font-sans">Total Products</p>
+              <h3 id="stat-total" class="text-4xl font-bold mt-2 text-white">0</h3>
+            </div>
+            <div class="p-6 rounded-2xl bg-[#13151c] border border-white/10 shadow-xl">
+              <p class="text-sm text-gray-400 font-sans">Custom Admin Added</p>
+              <h3 id="stat-custom" class="text-4xl font-bold mt-2 text-rose-400">0</h3>
+            </div>
+            <div class="p-6 rounded-2xl bg-[#13151c] border border-white/10 shadow-xl">
+              <p class="text-sm text-gray-400 font-sans">Active Categories</p>
+              <h3 id="stat-categories" class="text-4xl font-bold mt-2 text-amber-300">6</h3>
+            </div>
+          </div>
+
+          <!-- Products Management Section -->
+          <div class="rounded-2xl bg-[#13151c] border border-white/10 shadow-2xl overflow-hidden">
+            <div class="p-6 border-b border-white/10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+              <div>
+                <h2 class="text-xl font-bold font-sans tracking-wide">Product Inventory</h2>
+                <p class="text-sm text-gray-400 font-sans mt-1">Manage store templates, prices, discounts, and included features.</p>
+              </div>
+              <div class="flex items-center gap-3 w-full sm:w-auto">
+                <input type="text" id="admin-search" placeholder="Search products..." oninput="filterAdminProducts()" class="px-4 py-2 rounded-xl bg-black/40 border border-white/10 text-sm text-white focus:outline-none focus:border-rose-500 w-full sm:w-64" />
+              </div>
+            </div>
+
+            <!-- Desktop Table View -->
+            <div class="overflow-x-auto hidden sm:block">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="border-b border-white/10 bg-white/[0.02] text-xs font-sans uppercase text-gray-400 tracking-wider">
+                    <th class="py-4 px-6">Product</th>
+                    <th class="py-4 px-6">Category</th>
+                    <th class="py-4 px-6">Price / Discount</th>
+                    <th class="py-4 px-6">What's Included</th>
+                    <th class="py-4 px-6 text-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-product-list" class="divide-y divide-white/5 font-sans text-sm">
+                  <!-- Rendered via JS -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Mobile Card View -->
+            <div id="admin-product-cards" class="block sm:hidden divide-y divide-white/5 font-sans text-sm">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Add/Edit Product Modal -->
+    <div id="product-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+      <div class="bg-[#161821] border border-white/15 rounded-3xl max-w-2xl w-full p-5 sm:p-8 shadow-2xl relative my-auto sm:my-8">
+        <button onclick="closeModal()" class="absolute top-4 right-4 sm:top-6 sm:right-6 text-gray-400 hover:text-white p-2 rounded-full hover:bg-white/10 transition-all z-10">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+
+        <h3 id="modal-title" class="text-xl sm:text-2xl font-bold mb-6 font-sans text-white pr-10 sm:pr-0">Add New Product</h3>
+        
+        <form id="product-form" onsubmit="saveProduct(event)" class="space-y-5 font-sans">
+          <input type="hidden" id="product-id" />
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Product Name *</label>
+              <input type="text" id="p-title" required placeholder="e.g. Magical Birthday Surprise" class="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/15 text-white focus:outline-none focus:border-rose-500" />
+            </div>
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Product Type / Category *</label>
+              <select id="p-category" required class="w-full px-4 py-3 rounded-xl bg-[#161821] border border-white/15 text-white focus:outline-none focus:border-rose-500">
+                <option value="Birthday">Birthday</option>
+                <option value="Wedding">Wedding</option>
+                <option value="Love">Love</option>
+                <option value="Anniversary">Anniversary</option>
+                <option value="Occasion">Occasion</option>
+                <option value="Sorry">Sorry</option>
+                <option value="Free">Free</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Price (₹) *</label>
+              <input type="number" id="p-price" required min="0" placeholder="250" class="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/15 text-white focus:outline-none focus:border-rose-500" />
+            </div>
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Original Price (₹)</label>
+              <input type="number" id="p-original" min="0" placeholder="400" class="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/15 text-white focus:outline-none focus:border-rose-500" />
+            </div>
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Badge</label>
+              <input type="text" id="p-badge" placeholder="New / Hot / Featured" class="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/15 text-white focus:outline-none focus:border-rose-500" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Live Demo URL (Optional)</label>
+            <input type="text" id="p-demourl" placeholder="https://example.com/demo or /preview.html" class="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/15 text-white focus:outline-none focus:border-rose-500" />
+          </div>
+
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Description *</label>
+            <textarea id="p-desc" required rows="3" placeholder="Passkey - 1234 | Describe your amazing product here..." class="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/15 text-white focus:outline-none focus:border-rose-500"></textarea>
+          </div>
+
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Image URL *</label>
+            <input type="text" id="p-image" required placeholder="https://iili.io/nHnWMJI.png" class="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/15 text-white focus:outline-none focus:border-rose-500" />
+            <p class="text-xs text-gray-500 mt-1">Paste a direct image link (e.g. https://iili.io/nHnWMJI.png)</p>
+          </div>
+
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">What's Included (Feature List, one per line)</label>
+            <textarea id="p-features" rows="3" placeholder="Interactive Photo Gallery&#10;Custom Background Music&#10;Password Protection" class="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/15 text-white focus:outline-none focus:border-rose-500"></textarea>
+          </div>
+
+          <div class="flex justify-end gap-3 pt-4 border-t border-white/10">
+            <button type="button" onclick="closeModal()" class="px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 transition-all">Cancel</button>
+            <button type="submit" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white font-medium shadow-lg shadow-rose-600/30 transition-all">Save Product</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 px-6 py-3 rounded-2xl bg-emerald-600 text-white font-sans shadow-2xl flex items-center gap-3">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+      <span id="toast-msg">Success</span>
+    </div>
+
+    <!-- Firebase Auth & Admin Controller Script -->
+    <script>
+      const ADMIN_EMAILS = [
+        "asik.devhub@gmail.com",
+        "ayatulsekh3037@gmail.com"
+      ];
+
+      function initAdmin() {
+        const auth = firebase.auth();
+        auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+        const db = firebase.firestore();
+
+        let cachedProducts = [];
+
+        db.collection('products').onSnapshot((snapshot) => {
+          cachedProducts = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+          renderAdminTable();
+        });
+      }
+
+      const loadingView = document.getElementById('loading-view');
+      const loginView = document.getElementById('login-view');
+      const deniedView = document.getElementById('denied-view');
+      const dashboardView = document.getElementById('dashboard-view');
+      const loginError = document.getElementById('login-error');
+      const deniedEmail = document.getElementById('denied-email');
+      const adminUserBadge = document.getElementById('admin-user-badge');
+
+      function showView(view) {
+        loadingView.classList.add('hidden');
+        loginView.classList.add('hidden');
+        deniedView.classList.add('hidden');
+        dashboardView.classList.add('hidden');
+
+        if (view === 'loading') loadingView.classList.remove('hidden');
+        if (view === 'login') loginView.classList.remove('hidden');
+        if (view === 'denied') deniedView.classList.remove('hidden');
+        if (view === 'dashboard') dashboardView.classList.remove('hidden');
+      }
+
+      auth.onAuthStateChanged((user) => {
+        if (!user) {
+          showView('login');
+        } else {
+          const email = (user.email || '').toLowerCase();
+          if (ADMIN_EMAILS.includes(email)) {
+            showView('dashboard');
+            if (adminUserBadge) adminUserBadge.innerText = user.email;
+            renderAdminTable();
+          } else {
+            showView('denied');
+            if (deniedEmail) deniedEmail.innerHTML = `Logged in as: <span class="text-rose-400 font-semibold">${user.email}</span>`;
+          }
+        }
+      });
+
+      async function handleGoogleLogin() {
+        loginError.classList.add('hidden');
+        try {
+          const provider = new firebase.auth.GoogleAuthProvider();
+          await auth.signInWithPopup(provider);
+        } catch (err) {
+          loginError.innerText = err.message || 'Google Sign-In failed';
+          loginError.classList.remove('hidden');
+        }
+      }
+
+      async function handleEmailLogin(e) {
+        e.preventDefault();
+        loginError.classList.add('hidden');
+        const email = document.getElementById('login-email').value;
+        const pass = document.getElementById('login-password').value;
+        try {
+          await auth.signInWithEmailAndPassword(email, pass);
+        } catch (err) {
+          loginError.innerText = err.message || 'Email Sign-In failed';
+          loginError.classList.remove('hidden');
+        }
+      }
+
+      async function handleLogout() {
+        try {
+          await auth.signOut();
+        } catch (err) {
+          console.error(err);
+        }
+      }
+
+      function renderAdminTable(filterText = '') {
+        const allProds = cachedProducts;
+        
+        const statTotal = document.getElementById('stat-total');
+        const statCustom = document.getElementById('stat-custom');
+        if (statTotal) statTotal.innerText = allProds.length;
+        if (statCustom) statCustom.innerText = new Set(allProds.map(p => p.category)).size;
+
+        const tbody = document.getElementById('admin-product-list');
+        const cardContainer = document.getElementById('admin-product-cards');
+        if (!tbody && !cardContainer) return;
+
+        const filtered = allProds.filter(p => p.title.toLowerCase().includes(filterText.toLowerCase()) || p.category.toLowerCase().includes(filterText.toLowerCase()));
+
+        if (filtered.length === 0) {
+          const emptyMsg = allProds.length === 0 ? "No products yet — click Add New Product to create your first one." : "No products found.";
+          if (tbody) tbody.innerHTML = `<tr><td colspan="5" class="py-12 text-center text-gray-400">${emptyMsg}</td></tr>`;
+          if (cardContainer) cardContainer.innerHTML = `<div class="p-8 text-center text-gray-400">${emptyMsg}</div>`;
+          return;
+        }
+
+        if (tbody) {
+          tbody.innerHTML = filtered.map(p => {
+            const orig = p.originalPrice ? `<span class="line-through text-gray-500 text-xs ml-2">₹${p.originalPrice}</span>` : '';
+            const discount = p.originalPrice && p.originalPrice > p.price ? `<span class="ml-2 text-xs text-emerald-400 font-medium">Save ₹${p.originalPrice - p.price}</span>` : '';
+            const featuresList = (p.features || []).slice(0, 3).map(f => `<span class="inline-block px-2 py-0.5 rounded bg-white/5 text-xs text-gray-300 mr-1 mb-1">${f}</span>`).join('') + ((p.features || []).length > 3 ? '<span class="text-xs text-gray-500">...</span>' : '');
+
+            let badgeHtml = '<span class="px-2 py-0.5 text-[10px] rounded bg-rose-500/20 text-rose-300 border border-rose-500/30">Custom</span>';
+
+            return `
+              <tr class="hover:bg-white/[0.01] transition-all">
+                <td class="py-4 px-6">
+                  <div class="flex items-center gap-3">
+                    <img src="${p.imageSrc}" alt="${p.title}" class="w-12 h-10 object-cover rounded-lg border border-white/10" />
+                    <div>
+                      <div class="font-bold text-white flex items-center gap-2">
+                        ${p.title}
+                        ${badgeHtml}
+                      </div>
+                      <div class="text-xs text-gray-400 truncate max-w-xs">${p.description}</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-4 px-6">
+                  <span class="px-3 py-1 text-xs rounded-full bg-white/10 text-gray-200 border border-white/10">${p.category}</span>
+                </td>
+                <td class="py-4 px-6">
+                  <div class="font-bold text-white">₹${p.price} ${orig}</div>
+                  <div>${discount}</div>
+                </td>
+                <td class="py-4 px-6 max-w-xs">
+                  <div>${featuresList || '<span class="text-gray-500 text-xs">No features specified</span>'}</div>
+                </td>
+                <td class="py-4 px-6 text-right">
+                  <div class="flex items-center justify-end gap-2">
+                    <button onclick="editProduct('${p.id}')" class="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition-all" title="Edit">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                    </button>
+                    <button onclick="deleteProduct('${p.id}')" class="p-2 rounded-xl bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 transition-all" title="Delete">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            `;
+          }).join('');
+        }
+
+        if (cardContainer) {
+          cardContainer.innerHTML = filtered.map(p => {
+            const orig = p.originalPrice ? `<span class="line-through text-gray-500 text-xs ml-2">₹${p.originalPrice}</span>` : '';
+            const discount = p.originalPrice && p.originalPrice > p.price ? `<span class="ml-2 text-xs text-emerald-400 font-medium">Save ₹${p.originalPrice - p.price}</span>` : '';
+            const featuresList = (p.features || []).slice(0, 3).map(f => `<span class="inline-block px-2 py-0.5 rounded bg-white/5 text-xs text-gray-300 mr-1 mb-1">${f}</span>`).join('') + ((p.features || []).length > 3 ? '<span class="text-xs text-gray-500">...</span>' : '');
+
+            let badgeHtml = '<span class="px-2 py-0.5 text-[10px] rounded bg-rose-500/20 text-rose-300 border border-rose-500/30">Custom</span>';
+
+            return `
+              <div class="p-4 space-y-3 hover:bg-white/[0.01] transition-all">
+                <div class="flex items-start gap-3">
+                  <img src="${p.imageSrc}" alt="${p.title}" class="w-16 h-14 object-cover rounded-lg border border-white/10 shrink-0" />
+                  <div class="flex-1 min-w-0">
+                    <div class="font-bold text-white flex items-center justify-between gap-2">
+                      <span class="truncate">${p.title}</span>
+                      ${badgeHtml}
+                    </div>
+                    <div class="text-xs text-gray-400 mt-1 line-clamp-2">${p.description}</div>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between text-xs pt-1 border-t border-white/5">
+                  <div>
+                    <span class="px-2.5 py-1 rounded-full bg-white/10 text-gray-200 border border-white/10">${p.category}</span>
+                  </div>
+                  <div>
+                    <span class="font-bold text-white text-sm">₹${p.price}</span> ${orig}
+                    <div class="text-right">${discount}</div>
+                  </div>
+                </div>
+                ${featuresList ? `<div class="text-xs pt-1">${featuresList}</div>` : ''}
+                <div class="flex items-center justify-end gap-2 pt-2 border-t border-white/5">
+                  <button onclick="editProduct('${p.id}')" class="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition-all text-xs font-medium flex items-center gap-1.5 min-h-[36px]">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                    Edit
+                  </button>
+                  <button onclick="deleteProduct('${p.id}')" class="px-3 py-1.5 rounded-xl bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 transition-all text-xs font-medium flex items-center gap-1.5 min-h-[36px]">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                    Delete
+                  </button>
+                </div>
+              </div>
+            `;
+          }).join('');
+        }
+      }
+
+      function filterAdminProducts() {
+        const query = document.getElementById('admin-search').value;
+        renderAdminTable(query);
+      }
+
+      function openAddModal() {
+        document.getElementById('modal-title').innerText = 'Add New Product';
+        document.getElementById('product-id').value = '';
+        document.getElementById('product-form').reset();
+        document.getElementById('product-modal').classList.remove('hidden');
+      }
+
+      function closeModal() {
+        document.getElementById('product-modal').classList.add('hidden');
+      }
+
+      async function saveProduct(e) {
+        e.preventDefault();
+        const idField = document.getElementById('product-id').value;
+        const title = document.getElementById('p-title').value.trim();
+        const category = document.getElementById('p-category').value;
+        const price = parseFloat(document.getElementById('p-price').value);
+        const originalPriceInput = document.getElementById('p-original').value;
+        const originalPrice = originalPriceInput ? parseFloat(originalPriceInput) : Math.round(price * 1.5);
+        const saveAmount = originalPrice > price ? originalPrice - price : 0;
+        const badge = document.getElementById('p-badge').value.trim();
+        const badges = badge ? [category, badge] : [category, 'New'];
+        const description = document.getElementById('p-desc').value.trim();
+        const imageSrc = document.getElementById('p-image').value.trim();
+        const liveDemoUrl = document.getElementById('p-demourl').value.trim();
+        const featuresRaw = document.getElementById('p-features').value;
+        const features = featuresRaw.split('\n').map(f => f.trim()).filter(f => f.length > 0);
+
+        const id = idField || title.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '-' + Date.now().toString().slice(-4);
+
+        const newProd = {
+          id,
+          slug: id,
+          title,
+          category,
+          badges,
+          codePrice: price,
+          codeOriginalPrice: originalPrice,
+          livePrice: Math.round(price * 1.3),
+          liveOriginalPrice: Math.round(originalPrice * 1.3),
+          price,
+          originalPrice,
+          saveAmount,
+          description,
+          subtitle: description,
+          imageSrc,
+          liveDemoUrl,
+          themeBg: 'bg-[#0b0c10]',
+          features: features.length > 0 ? features : ['Interactive Photo Gallery', 'Custom Design', 'Easy Sharing']
+        };
+
+        try {
+          await db.collection('products').doc(id).set(newProd, { merge: true });
+          showToast(idField ? 'Product updated successfully!' : 'New product added successfully!');
+          closeModal();
+        } catch (err) {
+          console.error(err);
+          alert('Error saving product: ' + err.message);
+        }
+      }
+
+      function editProduct(id) {
+        const p = cachedProducts.find(item => item.id === id);
+        if (!p) return;
+
+        document.getElementById('modal-title').innerText = 'Edit Product: ' + p.title;
+        document.getElementById('product-id').value = p.id;
+        document.getElementById('p-title').value = p.title;
+        document.getElementById('p-category').value = p.category;
+        document.getElementById('p-price').value = p.price;
+        document.getElementById('p-original').value = p.originalPrice || '';
+        document.getElementById('p-badge').value = (p.badges && p.badges[1]) || '';
+        document.getElementById('p-demourl').value = p.liveDemoUrl || '';
+        document.getElementById('p-desc').value = p.description;
+        document.getElementById('p-image').value = p.imageSrc;
+        document.getElementById('p-features').value = (p.features || []).join('\n');
+
+        document.getElementById('product-modal').classList.remove('hidden');
+      }
+
+      async function deleteProduct(id) {
+        if (!confirm('Are you sure you want to delete this product?')) return;
+        try {
+          await db.collection('products').doc(id).delete();
+          showToast('Product deleted successfully!');
+        } catch (err) {
+          console.error(err);
+          alert('Error deleting product: ' + err.message);
+        }
+      }
+
+      function showToast(msg) {
+        const toast = document.getElementById('toast');
+        document.getElementById('toast-msg').innerText = msg;
+        toast.classList.remove('translate-y-20', 'opacity-0');
+        setTimeout(() => {
+          toast.classList.add('translate-y-20', 'opacity-0');
+        }, 3000);
+      }
+
+      window.addEventListener('firebase-ready', initAdmin);
+    </script>
+  </body>
+</html>

@@ -64,7 +64,26 @@ class WishlyTopBar extends HTMLElement {
       </nav>
     `;
 
-    // Attach event listener for mobile menu toggle
+    // Attach event listener for mobile menu toggle and 3 consecutive logo taps for admin
+    let tapCount = 0;
+    let tapTimer = null;
+    const logoBtn = this.querySelector('#brand-logo-btn');
+    if (logoBtn) {
+      logoBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        tapCount++;
+        if (tapTimer) clearTimeout(tapTimer);
+        tapTimer = setTimeout(() => {
+          if (tapCount >= 3) {
+            window.location.href = '/admin.html';
+          } else {
+            window.location.href = '/';
+          }
+          tapCount = 0;
+        }, 450);
+      });
+    }
+
     const btnMobileMenu = this.querySelector('#btn-mobile-menu');
     const drawer = this.querySelector('#mobile-menu-drawer');
     const iconOpen = this.querySelector('#icon-menu-open');

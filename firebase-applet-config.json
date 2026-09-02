@@ -1,0 +1,12 @@
+{
+  "projectId": "corehub-prod",
+  "appId": "1:456306038319:web:cc96a5ad63d6a512e6d8da",
+  "apiKey": "AIzaSyCprreJvHc9vxKCg16BFek_Mg0wtUQ5y-k",
+  "authDomain": "corehub-prod.firebaseapp.com",
+  "firestoreDatabaseId": "ai-studio-wishly-2413de9a-8670-46fb-bf71-efdf7d235d91",
+  "storageBucket": "corehub-prod.firebasestorage.app",
+  "messagingSenderId": "456306038319",
+  "measurementId": "",
+  "oAuthClientId": "456306038319-1jdp31enrvj5e2o7c8vom94tf0fdif08.apps.googleusercontent.com",
+  "recaptchaSiteKey": ""
+}

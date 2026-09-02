@@ -15,6 +15,32 @@
     <link rel="icon" href="/favicon.ico?v=3" />
   <link rel="icon" href="/asset/manifest/icon-192.png" sizes="192x192" type="image/png">
   <link rel="apple-touch-icon" href="/asset/manifest/icon-192.png" sizes="180x180">
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCprreJvHc9vxKCg16BFek_Mg0wtUQ5y-k",
+      authDomain: "corehub-prod.firebaseapp.com",
+      projectId: "corehub-prod",
+      storageBucket: "corehub-prod.firebasestorage.app",
+      messagingSenderId: "456306038319",
+      appId: "1:456306038319:web:cc96a5ad63d6a512e6d8da"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const firestoreDb = getFirestore(app, 'ai-studio-wishly-2413de9a-8670-46fb-bf71-efdf7d235d91');
+
+    window.firebase = {
+      firestore: () => ({
+        collection: (colName) => ({
+          get: () => getDocs(collection(firestoreDb, colName))
+        })
+      })
+    };
+
+    window.dispatchEvent(new Event('firebase-ready'));
+  </script>
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
@@ -1285,136 +1311,9 @@
 
   <!-- Complete Application Script -->
   <script>
-    const TEMPLATES_DATA = [
-      {
-        id: 'cinematic-birthday',
-        slug: 'cinematic-birthday',
-        title: 'Cinematic-Birthday',
-        category: 'Birthday',
-        badges: ['Birthday', 'New'],
-        codePrice: 299,
-        codeOriginalPrice: 500,
-        livePrice: 399,
-        liveOriginalPrice: 799,
-        subtitle: 'Passkey - 1234 | Craft unique, colorful birthday surprises with easy-to-use designs that bring smiles and unforgettable moments.',
-        description: 'Passkey - 1234 | Craft unique, colorful birthday surprises with easy-to-use designs that bring smiles and unforgettable moments.',
-        passkey: '1234',
-        previewType: 'cinematic-birthday',
-        features: [
-          'Colorful confetti animation',
-          'background music',
-          'Photo section',
-          'Interactive cake section'
-        ]
-      },
-      {
-        id: 'birthday-p3',
-        slug: 'birthday-p3',
-        title: 'Birthday-P3',
-        category: 'Birthday',
-        badges: ['Birthday', 'Popular'],
-        codePrice: 330,
-        codeOriginalPrice: 550,
-        livePrice: 430,
-        liveOriginalPrice: 850,
-        subtitle: 'Craft unique, colorful birthday surprises with easy-to-use designs that bring smiles and unforgettable moments.',
-        description: 'Birthday Template: Craft unique, colorful birthday surprises with easy-to-use designs that bring smiles and unforgettable moments.',
-        passkey: null,
-        previewType: 'birthday-p3',
-        features: [
-          'Cute animated glowing bear character',
-          'Interactive floating birthday balloon pops',
-          'Personalized wish typing effect',
-          'Celebration sound fx and melody'
-        ]
-      },
-      {
-        id: 'raksha-bandhan',
-        slug: 'raksha-bandhan',
-        title: 'Raksha-Bandhan',
-        category: 'Love',
-        badges: ['Love', 'Festival'],
-        codePrice: 249,
-        codeOriginalPrice: 450,
-        livePrice: 349,
-        liveOriginalPrice: 699,
-        subtitle: 'Special festival template celebrating sibling love with animated Rakhi, custom blessings, gift unwrapping, and childhood memory gallery.',
-        description: 'Special festival template celebrating sibling love with animated Rakhi, custom blessings, gift unwrapping, and childhood memory gallery.',
-        passkey: null,
-        previewType: 'rakhi',
-        features: [
-          'Interactive clicking Rakhi with sparkle animations',
-          'Sibling childhood memory gallery',
-          'Traditional festive background melody',
-          'Customizable sibling promise cards'
-        ]
-      },
-      {
-        id: 'love-flower',
-        slug: 'love-flower',
-        title: 'Love-flower',
-        category: 'Love',
-        badges: ['Love', 'Romantic'],
-        codePrice: 280,
-        codeOriginalPrice: 499,
-        livePrice: 380,
-        liveOriginalPrice: 799,
-        subtitle: 'Romantic blooming flower bouquet with interactive love letter, custom notes, and soft background melody.',
-        description: 'Romantic blooming flower bouquet with interactive love letter, custom notes, and soft background melody.',
-        passkey: null,
-        previewType: 'love-flower',
-        features: [
-          'Interactive flower blooming animation',
-          'Handwritten style letter unfolding',
-          'Romantic background song integration',
-          'Custom love messages and photos'
-        ]
-      },
-      {
-        id: 'scrapbook',
-        slug: 'scrapbook',
-        title: 'Scrapbook',
-        category: 'Love',
-        badges: ['Love', 'Vintage'],
-        codePrice: 290,
-        codeOriginalPrice: 520,
-        livePrice: 390,
-        liveOriginalPrice: 820,
-        subtitle: 'Vintage botanical memory scrapbook with wax seal envelope, photo flip pages, and intimate love journal entries.',
-        description: 'Vintage botanical memory scrapbook with wax seal envelope, photo flip pages, and intimate love journal entries.',
-        passkey: null,
-        previewType: 'scrapbook',
-        features: [
-          'Realistic wax seal breaking animation',
-          'Interactive flipbook photo scrapbook',
-          'Vintage paper textures and typography',
-          'Background acoustic romantic soundtrack'
-        ]
-      },
-      {
-        id: 'wedding-site2',
-        slug: 'wedding-site2',
-        title: 'Wedding Site 2',
-        category: 'Wedding',
-        badges: ['Wedding', 'Luxury'],
-        codePrice: 450,
-        codeOriginalPrice: 800,
-        livePrice: 599,
-        liveOriginalPrice: 1200,
-        subtitle: 'Luxury digital wedding invitation with ceremony schedule, RSVP form, Google Map directions, and couple story gallery.',
-        description: 'Luxury digital wedding invitation with ceremony schedule, RSVP form, Google Map directions, and couple story gallery.',
-        passkey: null,
-        previewType: 'wedding2',
-        features: [
-          'Luxury typography & romantic floral arch animations',
-          'Live countdown timer to the auspicious ceremony',
-          'Google Maps venue integration & schedule',
-          'Interactive digital RSVP submission'
-        ]
-      }
-    ];
+    let TEMPLATES_DATA = [];
 
-    let currentProduct = TEMPLATES_DATA[0];
+    let currentProduct = null;
     let currentCurrency = { code: 'INR', symbol: '₹', rate: 1 };
     let passcodeEntered = '';
     let audioContext = null;
@@ -1454,6 +1353,18 @@
     // Render product details into DOM
     function renderProductPage() {
       const item = currentProduct;
+
+      if (!item) {
+        const container = document.querySelector('main') || document.body;
+        container.innerHTML = `
+          <div style="min-height:60vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:2rem; color:#fff;">
+            <h1 style="font-size:1.5rem; font-weight:700; margin-bottom:0.5rem;">Product not found</h1>
+            <p style="color:#9ca3af; margin-bottom:1.5rem;">This template may have been removed or the link is incorrect.</p>
+            <a href="/products" style="padding:0.75rem 1.5rem; border-radius:0.75rem; background:#e11d48; color:#fff; text-decoration:none; font-weight:600;">Browse Templates</a>
+          </div>
+        `;
+        return;
+      }
 
       // Meta and titles
       document.title = `${item.title} – Wishly`;
@@ -1577,6 +1488,11 @@
 
     // Interactive Live Demo Modal
     function openLiveDemoModal() {
+      if (currentProduct.liveDemoUrl && currentProduct.liveDemoUrl.trim().length > 0) {
+        window.open(currentProduct.liveDemoUrl, '_blank');
+        return;
+      }
+
       const modal = document.getElementById('live-demo-modal');
       const stage = document.getElementById('interactive-demo-stage');
       const titleEl = document.getElementById('demo-modal-title');
@@ -1854,7 +1770,18 @@
     }
 
     // Initialize product page
-    window.addEventListener('DOMContentLoaded', () => {
+    async function initDetail() {
+      const db = firebase.firestore();
+
+      try {
+        const snapshot = await db.collection('products').get();
+        if (!snapshot.empty) {
+          TEMPLATES_DATA = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        }
+      } catch (e) {
+        console.error("Error fetching products from Firestore:", e);
+      }
+
       // Clean any option-live hash from URL
       if (window.location.hash === '#option-live' || window.location.hash.includes('option-live')) {
         if (window.history && window.history.replaceState) {
@@ -1875,8 +1802,11 @@
 
       detectProduct();
       renderProductPage();
+      if (!currentProduct) return;
       initScrollReveal();
-    });
+    }
+
+    window.addEventListener('firebase-ready', initDetail);
   </script>
 
 <script src="/components/topbar.js"></script>

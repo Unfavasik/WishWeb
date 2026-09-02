@@ -22,6 +22,32 @@
       rel="stylesheet"
     />
     <meta name="theme-color" content="#08090B" />
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+      import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyCprreJvHc9vxKCg16BFek_Mg0wtUQ5y-k",
+        authDomain: "corehub-prod.firebaseapp.com",
+        projectId: "corehub-prod",
+        storageBucket: "corehub-prod.firebasestorage.app",
+        messagingSenderId: "456306038319",
+        appId: "1:456306038319:web:cc96a5ad63d6a512e6d8da"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const firestoreDb = getFirestore(app, 'ai-studio-wishly-2413de9a-8670-46fb-bf71-efdf7d235d91');
+
+      window.firebase = {
+        firestore: () => ({
+          collection: (colName) => ({
+            get: () => getDocs(collection(firestoreDb, colName))
+          })
+        })
+      };
+
+      window.dispatchEvent(new Event('firebase-ready'));
+    </script>
     <title>Website Templates – Wishly & Webkaizen</title>
     <meta
       name="description"
@@ -324,9 +350,9 @@
       .search-bar,
       .template-search {
         width: 100%;
-        height: 72px !important;
+        height: 52px !important;
         padding: 0 22px !important;
-        border-radius: 36px !important;
+        border-radius: 26px !important;
         background: #0b0c10;
         border: 1px solid rgba(255, 255, 255, 0.14);
         display: flex;
@@ -393,9 +419,9 @@
 
       .category-selector {
         width: 100%;
-        height: 78px !important;
+        height: 54px !important;
         padding: 0 28px !important;
-        border-radius: 20px !important;
+        border-radius: 16px !important;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -728,11 +754,10 @@
             🔍
           </div>
           <h3 class="text-lg font-semibold text-white mb-1">
-            No templates found
+            No templates available yet
           </h3>
           <p class="text-sm text-[#A7A7AE] max-w-sm mx-auto mb-6">
-            We couldn't find any template matching your search. Try another
-            keyword or browse all categories.
+            No templates available yet. Add products via the admin panel to display them here.
           </p>
           <button
             onclick="resetFilters()"
@@ -1159,239 +1184,30 @@
 
     <!-- Template Data & Client Script -->
     <script>
-      const TEMPLATES_DATA = [
-        {
-          id: "cinematic-birthday",
-          title: "Cinematic-Birthday",
-          category: "Birthday",
-          badges: ["Birthday", "New"],
-          price: 250,
-          originalPrice: 400,
-          saveAmount: 150,
-          description:
-            "Passkey - 1234 | Craft unique, colorful birthday surprises with easy-to-use designs that bring smiles and unforgettable moments.",
-          imageSrc: "/_next/image?url=%2Fproduct%2Fc-birthday.png&w=640&q=75",
-          themeBg: "bg-[#0b0c10]",
-        },
-        {
-          id: "raksha-bandhan",
-          title: "Raksha-Bandhan",
-          category: "Occasion",
-          badges: ["Occasion", "New"],
-          price: 249,
-          originalPrice: 500,
-          saveAmount: 251,
-          description:
-            "A beautiful, heartwarming Raksha Bandhan website celebrating the special bond between brothers and sisters with interactive Rakhi tying animation.",
-          imageSrc: "/_next/image?url=%2Fproduct%2Frakhi.png&w=640&q=75",
-          themeBg:
-            "bg-gradient-to-br from-[#7a060e] via-[#aa181a] to-[#de5d09]",
-        },
-        {
-          id: "birthday-p3",
-          title: "Birthday-P3",
-          category: "Birthday",
-          badges: ["Birthday"],
-          price: 250,
-          originalPrice: 430,
-          saveAmount: 180,
-          description:
-            "Birthday Template: Craft unique, colorful birthday surprises with easy-to-use designs that bring smiles and unforgettable moments.",
-          imageSrc: "/_next/image?url=%2Fproduct%2Fbirthday-p3.png&w=640&q=75",
-          themeBg: "bg-[#1a0309]",
-        },
-        {
-          id: "love-flower",
-          title: "Love-flower",
-          category: "Love",
-          badges: ["Love", "New"],
-          price: 250,
-          originalPrice: 330,
-          saveAmount: 80,
-          description:
-            "Love Flower is a beautiful interactive project that symbolizes love, emotions, and blooming affections with animated floral effects.",
-          themeBg: "bg-[#2b101d]",
-        },
-        {
-          id: "scrapbook",
-          title: "Scrapbook",
-          category: "Occasion",
-          badges: ["Occasion", "New"],
-          price: 199,
-          originalPrice: 230,
-          saveAmount: 31,
-          description:
-            "A creative digital scrapbook built with HTML, CSS, JavaScript, and Canva also, featuring personalized pages, polaroid photos, and custom background music.",
-          themeBg: "bg-[#1e140d]",
-        },
-        {
-          id: "wedding-site2",
-          title: "Wedding Site 2",
-          category: "Wedding",
-          badges: ["Wedding", "New"],
-          price: 250,
-          originalPrice: 1500,
-          saveAmount: 1250,
-          description:
-            "Create stunning, interactive digital wedding invitations and websites. Share your story, ceremony itinerary, venue navigation, and RSVP.",
-          themeBg: "bg-[#141b22]",
-        },
-        {
-          id: "birthday-matrix",
-          title: "Birthday Matrix",
-          category: "Birthday",
-          badges: ["Birthday"],
-          price: 220,
-          originalPrice: 399,
-          saveAmount: 179,
-          description:
-            "A beautiful animated birthday wish template with matrix effects and custom music.",
-          themeBg: "bg-[#050807]",
-        },
-        {
-          id: "birthday-p1",
-          title: "Birthday-p1",
-          category: "Birthday",
-          badges: ["Birthday"],
-          price: 199,
-          originalPrice: 299,
-          saveAmount: 100,
-          description:
-            "A vibrant, cheerful birthday celebration template with pop-up greeting cards, photo carousel, and animated candle blowing.",
-          themeBg: "bg-[#180d28]",
-        },
-        {
-          id: "wedding-site",
-          title: "Wedding Site",
-          category: "Wedding",
-          badges: ["Wedding"],
-          price: 299,
-          originalPrice: 1199,
-          saveAmount: 900,
-          description:
-            "Classic luxury wedding invitation website template with countdown timer, photo gallery, love story timeline, and guest book.",
-          themeBg: "bg-[#1a1510]",
-        },
-        {
-          id: "birthday-p2",
-          title: "Birthday-p2",
-          category: "Birthday",
-          badges: ["Birthday"],
-          price: 210,
-          originalPrice: 350,
-          saveAmount: 140,
-          description:
-            "Modern aesthetic birthday board with background audio player, floating heart balloons, and customizable memory photo wall.",
-          themeBg: "bg-[#101424]",
-        },
-        {
-          id: "be-my-valentine",
-          title: "Be My Valentine",
-          category: "Love",
-          badges: ["Love"],
-          price: 199,
-          originalPrice: 350,
-          saveAmount: 151,
-          description:
-            "Express your feelings with this interactive Valentine confession page featuring playful buttons, romantic animations, and love notes.",
-          themeBg: "bg-[#2b0c16]",
-        },
-        {
-          id: "love-letter",
-          title: "Love Letter",
-          category: "Love",
-          badges: ["Love"],
-          price: 199,
-          originalPrice: 299,
-          saveAmount: 100,
-          description:
-            "An interactive envelope opening animation revealing a heartfelt handwritten letter, gentle background music, and cute polaroids.",
-          themeBg: "bg-[#280a18]",
-        },
-        {
-          id: "say-sorry",
-          title: "Say Sorry",
-          category: "Sorry",
-          badges: ["Sorry"],
-          price: 149,
-          originalPrice: 250,
-          saveAmount: 101,
-          description:
-            "A thoughtful apology website with gentle animations, sincere messages, and a sweet forgiveness interaction.",
-          themeBg: "bg-[#161a22]",
-        },
-        {
-          id: "anniversary-board",
-          title: "Anniversary Board",
-          category: "Anniversary",
-          badges: ["Anniversary"],
-          price: 250,
-          originalPrice: 450,
-          saveAmount: 200,
-          description:
-            "Celebrate years of love with milestones timeline, memory photo grid, romantic playlist, and love letter reveal.",
-          themeBg: "bg-[#1f0f18]",
-        },
-        {
-          id: "interactive-story",
-          title: "Interactive Story",
-          category: "Occasion",
-          badges: ["Occasion"],
-          price: 220,
-          originalPrice: 380,
-          saveAmount: 160,
-          description:
-            "Storybook style digital website with page-turn transitions, custom chapters, illustrated backgrounds, and photo memories.",
-          themeBg: "bg-[#111922]",
-        },
-        {
-          id: "romantic-sky",
-          title: "Romantic Sky",
-          category: "Love",
-          badges: ["Love"],
-          price: 240,
-          originalPrice: 420,
-          saveAmount: 180,
-          description:
-            "Magical romantic website under a star-filled sky with floating lanterns, interactive heart counter, and sweet audio messages.",
-          themeBg: "bg-[#240b15]",
-        },
-        {
-          id: "free-birthday-mini",
-          title: "Mini Birthday Wish",
-          category: "Free",
-          badges: ["Free", "Birthday"],
-          price: 0,
-          originalPrice: 150,
-          saveAmount: 150,
-          description:
-            "Free lightweight animated birthday card template with customized name and confetti explosion effect. Perfect for quick wishes.",
-          themeBg: "bg-[#0f172a]",
-        },
-      ];
-
-      const CATEGORY_COUNTS = {
-        All: 17,
-        Birthday: 6,
-        Love: 4,
-        Wedding: 2,
-        Occasion: 3,
-        Sorry: 1,
-        Anniversary: 1,
-        Free: 1,
-      };
+      let TEMPLATES_DATA = [];
 
       let currentCategory = "All";
       let currentSearch = "";
       let isAccordionOpen = false; // CLOSED by default
       let currentCurrency = { code: "INR", symbol: "₹", rate: 1 };
 
-      function init() {
+      async function init() {
+        const db = firebase.firestore();
+
+        try {
+          const snapshot = await db.collection('products').get();
+          if (!snapshot.empty) {
+            TEMPLATES_DATA = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+          }
+        } catch (e) {
+          console.error("Error fetching products:", e);
+        }
+
         const urlParams = new URLSearchParams(window.location.search);
         const catParam = urlParams.get("category");
         const qParam = urlParams.get("q");
 
-        if (catParam && CATEGORY_COUNTS[catParam]) {
+        if (catParam) {
           currentCategory = catParam;
         }
         if (qParam) {
@@ -1694,7 +1510,7 @@
         renderProducts();
       }
 
-      window.addEventListener("DOMContentLoaded", init);
+      window.addEventListener("firebase-ready", init);
     </script>
 
     <script src="/components/topbar.js"></script>

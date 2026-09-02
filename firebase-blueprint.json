@@ -1,0 +1,26 @@
+{
+  "entities": {
+    "Product": {
+      "title": "Product",
+      "description": "Store product / template items",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "title": { "type": "string", "maxLength": 200 },
+        "category": { "type": "string", "maxLength": 50 },
+        "price": { "type": "number" },
+        "originalPrice": { "type": "number" },
+        "description": { "type": "string", "maxLength": 1000 },
+        "imageSrc": { "type": "string", "maxLength": 500 },
+        "liveDemoUrl": { "type": "string", "maxLength": 500 }
+      },
+      "required": ["id", "title", "category", "price", "description", "imageSrc"]
+    }
+  },
+  "firestore": {
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "Products collection"
+    }
+  }
+}

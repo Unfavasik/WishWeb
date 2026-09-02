@@ -1285,7 +1285,9 @@
 
   <!-- Complete Application Script -->
   <script>
-    const TEMPLATES_DATA = [
+    const customProducts = JSON.parse(localStorage.getItem('wishly_custom_products') || '[]');
+      const TEMPLATES_DATA = [
+        ...customProducts,
       {
         id: 'cinematic-birthday',
         slug: 'cinematic-birthday',
